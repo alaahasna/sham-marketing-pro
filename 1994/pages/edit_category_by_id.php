@@ -24,7 +24,7 @@ $category = @mysql_fetch_assoc($select_category);
               $category_name = $_POST['category_name'];
               $ar_category_name = $_POST['ar_category_name'];
               $view_in_index_in_part = $_POST['view_in_index_in_part'];
-
+              $update_view_in_index = @mysql_query("update category set view_in_index_in_part='No' where view_in_index_in_part='".$view_in_index_in_part."'") or die(mysql_error());
               $update_category = @mysql_query("update category set
         category_name='$category_name',
         ar_category_name='$ar_category_name',

@@ -148,6 +148,138 @@
               return $x;
             }
 
+            function categories_in_nav(){
+              $select_nav_category = @mysql_query("select * from category") or die(mysql_error());
+              while($nav_category = @mysql_fetch_assoc($select_nav_category)){
+                echo '
+               <div class="col l2">
+                  <div class="category">
+                      <!-- Dropdown Trigger -->
+                      <a class="dropdown-trigger btn" href="#" data-target="dropdown'.$nav_category['id'].'">'.$nav_category['category_name'].'</a>
+                      <i class="material-icons">expand_more</i>
+
+                      <!-- Dropdown Structure -->
+                      <ul id="dropdown'.$nav_category['id'].'" class="dropdown-content">
+                        <li>
+                          <div class="container">
+                            <div class="row">
+                            ';
+                                $select_nav_sub_category = @mysql_query("select * from sub_category where category_id='".$nav_category['id']."'") or die(mysql_error());
+                                while($nav_sub_category = @mysql_fetch_assoc($select_nav_sub_category)){
+                                  echo '
+                                  <div class="col l3">
+                                  <h6>'.$nav_sub_category['title'].'</h6>';
+
+                                  $select_nav_products = @mysql_query("select * from products where category_id='".$nav_sub_category['id']."'") or die(mysql_error());
+                                  while($nav_products = @mysql_fetch_assoc($select_nav_products)){
+
+                                  echo '
+                                  <a href="#">'.$nav_products['title'].'</a>
+                                  ';
+                                  }
+
+                                  echo '</div>';
+                                }
+                                echo'
+
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                  </div>
+                </div>
+                ';
+              }
+            }
+
+            function nav_bar(){
+              echo '
+              <nav>
+        <div class="nav-wrapper">
+          <a class="right hide-on-large-only search-mid-screen modal-trigger" href="#search"><i class="fa fa-search fa-2x"></i></a>
+          <a href="index.php" class="brand-logo">
+              <img src="imgs/logo.png" class="responsive-img" width="250">
+          </a>
+          <a href="#" data-target="mobile-navbar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="categories.php">Categories</a></li>
+            <li><a href="products.php">Products</a></li>
+            <li><a href="services.php">Services</a></li>
+            <li><a href="services.php">Daily Deals</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="cart.php"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
+            <li><a href="#login" class="modal-trigger"><i class="fa fa-user fa-2x"></i></a></li>
+            <li><a href="#search" class="modal-trigger"><i class="fa fa-search fa-2x"></i></a></li>
+            <li><a href="ar/">Arabic</a></li>
+          </ul>
+
+          <ul class="sidenav" id="mobile-navbar">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="categories.php">Categories</a></li>
+            <li><a href="products.php">Products</a></li>
+            <li><a href="services.php">Services</a></li>
+            <li><a href="daily-deals.php">Daily Deals</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
+            <li><a href="cart.php">Cart</a></li>
+            <li><a href="#login">Login</a></li>
+            <li><a href="ar/">Arabic</a></li>
+          </ul>
+        </div>
+        <!-- Search Modal Structure -->
+        <div id="search" class="modal">
+          <div class="modal-content center-align">
+            <div class="container">
+              <div class="row">
+                <h4>Search</h4>
+                <form action="search.php" method="get">
+                <input type="text" name="search" placeholder="Search.." required="required" />
+                <input type="submit" value="Search" class="btn btn-float" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+         <!-- Search Modal Structure -->
+        <div id="login" class="modal">
+          <div class="modal-content center-align">
+            <div class="container">
+              <div class="row">
+                <h4>Sign In</h4>
+                <input type="text" name="username" placeholder="Email or Username..">
+                <input type="password" name="password" placeholder="Password..">
+                <input type="submit" value="Login" class="btn btn-float">
+                <a href="register.php" class="btn btn-block btn-float signup">SIGN UP</a>
+                <p class="center-align">Login Or SignUp using:</p>
+                <div class="center-align">
+                  <div class="facebook">
+                    <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+                  </div>
+                  <div class="google">
+                    <a href="#"><i class="fa fa-google fa-2x"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="nav-content hide-on-med-and-down">
+            <div class="categories-list">
+              <div class="row">
+              ';
+              categories_in_nav();
+              echo '
+              </div>
+            </div>
+          </div>
+      </nav>
+              ';
+            }
+
 
             connect_db();
             create_db();
