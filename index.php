@@ -97,56 +97,34 @@ include "lib/main.php";
           </div>
           <div class="row">
           <?php
-          $select_products_1 = @mysql_query("select * from products where category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='1') )") or die(mysql_error());
-          //$i1 = 1;
+          $select_products_1 = @mysql_query("select * from products where category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='1') ) order by id desc limit 5") or die(mysql_error());
+          $i1 = 1;
           while($products_1 = @mysql_fetch_assoc($select_products_1)){
-            /*if($i1 == 1) $id1 = $products_1['id'] or 0;
-            if($i1 == 2) $id2 = $products_1['id'] or 0;
-            if($i1 == 3) $id3 = $products_1['id'] or 0;
-            if($i1 == 4) $id4 = $products_1['id'] or 0;
-            if($i1 == 5) $id5 = $products_1['id'] or 0;
-            $i1++;    */
-          }
-          ?>
+            if($i1 == 1){
+            echo '
             <div class="col l6 m6 s12">
-              <a href="#">
-                <img src="imgs/fashion1.jpeg" class="responsive-img">
-                <p class="center-align">Fashion Name</p>
+              <a href="product.php?id='.$products_1['id'].'">
+                <img src="images/'.$products_1['pic'].'" alt="'.$products_1['title'].'" class="responsive-img">
+                <p class="center-align">'.$products_1['title'].'</p>
               </a>
             </div>
+            ';
+            $i1++;
+            }else{
+            echo '
+            <div class="col l3 m3 s12">
+              <a href="product.php?id='.$products_1['id'].'">
+                <img src="images/'.$products_1['pic'].'" alt="'.$products_1['title'].'" class="responsive-img">
+                <p class="center-align">'.$products_1['title'].'</p>
+              </a>
+            </div>
+            ';
+            }
 
-            <div class="col l3 m3 s12">
-              <div class="row">
-                <div class="col l12 m12 s12">
-                  <a href="#">
-                      <img src="imgs/fashion1.jpeg" class="responsive-img">
-                      <p class="center-align">Fashion Name</p>
-                  </a>
-                </div>
-                <div class="col l12 m12 s12">
-                    <a href="#">
-                      <img src="imgs/fashion1.jpeg" class="responsive-img">
-                      <p class="center-align">Fashion Name</p>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col l3 m3 s12">
-              <div class="row">
-                <div class="col l12 m12 s12">
-                  <a href="#">
-                      <img src="imgs/fashion1.jpeg" class="responsive-img">
-                      <p class="center-align">Fashion Name</p>
-                  </a>
-                </div>
-                <div class="col l12 m12 s12">
-                  <a href="#">
-                      <img src="imgs/fashion1.jpeg" class="responsive-img">
-                      <p class="center-align">Fashion Name</p>
-                  </a>
-                </div>
-              </div>
-            </div>
+          }
+          ?>
+
+
           </div>
         </div>
       </section>
@@ -161,55 +139,34 @@ include "lib/main.php";
           </div>
           <div class="row">
           <?php
-          $select_products_2 = @mysql_query("select * from products where category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='2') )") or die(mysql_error());
-          //$i1 = 1;
+          $select_products_2 = @mysql_query("select * from products where category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='2') ) order by id desc limit 5") or die(mysql_error());
+          $i2 = 1;
           while($products_2 = @mysql_fetch_assoc($select_products_2)){
-            /*if($i1 == 1) $id1 = $products_1['id'] or 0;
-            if($i1 == 2) $id2 = $products_1['id'] or 0;
-            if($i1 == 3) $id3 = $products_1['id'] or 0;
-            if($i1 == 4) $id4 = $products_1['id'] or 0;
-            if($i1 == 5) $id5 = $products_1['id'] or 0;
-            $i1++;    */
-          }
-          ?>
+            if($i2 == 1){
+            echo '
             <div class="col l6 m6 s12">
-              <a href="#">
-                <img src="imgs/ele.jpeg" class="responsive-img">
-                <p class="center-align">Electronic Name</p>
+              <a href="product.php?id='.$products_2['id'].'">
+                <img src="images/'.$products_2['pic'].'" alt="'.$products_2['title'].'" class="responsive-img">
+                <p class="center-align">'.$products_2['title'].'</p>
               </a>
             </div>
+            ';
+            $i2++;
+            }else{
+            echo '
             <div class="col l3 m3 s12">
-              <div class="row">
-                <div class="col l12 m12 s12">
-                  <a href="#">
-                      <img src="imgs/ele.jpeg" class="responsive-img">
-                      <p class="center-align">Electronic Name</p>
-                  </a>
-                </div>
-                <div class="col l12 m12 s12">
-                    <a href="#">
-                      <img src="imgs/ele.jpeg" class="responsive-img">
-                      <p class="center-align">Electronic Name</p>
-                  </a>
-                </div>
-              </div>
+              <a href="product.php?id='.$products_2['id'].'">
+                <img src="images/'.$products_2['pic'].'" alt="'.$products_2['title'].'" class="responsive-img">
+                <p class="center-align">'.$products_2['title'].'</p>
+              </a>
             </div>
-            <div class="col l3 m3 s12">
-              <div class="row">
-                <div class="col l12 m12 s12">
-                  <a href="#">
-                      <img src="imgs/ele.jpeg" class="responsive-img">
-                      <p class="center-align">Fashion Name</p>
-                  </a>
-                </div>
-                <div class="col l12 m12 s12">
-                  <a href="#">
-                      <img src="imgs/ele.jpeg" class="responsive-img">
-                      <p class="center-align">Fashion Name</p>
-                  </a>
-                </div>
-              </div>
-            </div>
+            ';
+            }
+
+          }
+          ?>
+
+
           </div>
         </div>
       </section>
@@ -250,7 +207,7 @@ include "lib/main.php";
           <div class="row">
             <div class="owl-one owl-carousel">
             <?php
-          $select_popular_products = @mysql_query("select * from products order by RAND() limit 15") or die(mysql_error());
+          $select_popular_products = @mysql_query("select * from products where view_in_index='Yes' order by RAND() limit 15") or die(mysql_error());
           while($popular_products = @mysql_fetch_assoc($select_popular_products)){
             if($popular_products['price_after_discount'] == 0) $price = $popular_products['price']; else $price = "<i class='fa fa-star' title='Discount'></i> <b>".$popular_products['price_after_discount']."</b>";
             echo '
@@ -319,55 +276,34 @@ include "lib/main.php";
           </div>
           <div class="row">
           <?php
-          $select_products_3 = @mysql_query("select * from products where category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='3') )") or die(mysql_error());
-          //$i1 = 1;
+          $select_products_3 = @mysql_query("select * from products where category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='3') ) order by id desc limit 5") or die(mysql_error());
+          $i3 = 1;
           while($products_3 = @mysql_fetch_assoc($select_products_3)){
-            /*if($i1 == 1) $id1 = $products_1['id'] or 0;
-            if($i1 == 2) $id2 = $products_1['id'] or 0;
-            if($i1 == 3) $id3 = $products_1['id'] or 0;
-            if($i1 == 4) $id4 = $products_1['id'] or 0;
-            if($i1 == 5) $id5 = $products_1['id'] or 0;
-            $i1++;    */
-          }
-          ?>
+            if($i3 == 1){
+            echo '
             <div class="col l6 m6 s12">
-              <a href="#">
-                <img src="imgs/home1.jpeg" class="responsive-img">
-                <p class="center-align">House Style Name</p>
+              <a href="product.php?id='.$products_3['id'].'">
+                <img src="images/'.$products_3['pic'].'" alt="'.$products_3['title'].'" class="responsive-img">
+                <p class="center-align">'.$products_3['title'].'</p>
               </a>
             </div>
+            ';
+            $i2++;
+            }else{
+            echo '
             <div class="col l3 m3 s12">
-              <div class="row">
-                <div class="col l12 m12 s12">
-                  <a href="#">
-                      <img src="imgs/home2.jpeg" class="responsive-img">
-                      <p class="center-align">House Style Name</p>
-                  </a>
-                </div>
-                <div class="col l12 m12 s12">
-                    <a href="#">
-                      <img src="imgs/home3.jpeg" class="responsive-img">
-                      <p class="center-align">House Style Name</p>
-                  </a>
-                </div>
-              </div>
+              <a href="product.php?id='.$products_3['id'].'">
+                <img src="images/'.$products_3['pic'].'" alt="'.$products_3['title'].'" class="responsive-img">
+                <p class="center-align">'.$products_3['title'].'</p>
+              </a>
             </div>
-            <div class="col l3 m3 s12">
-              <div class="row">
-                <div class="col l12 m12 s12">
-                  <a href="#">
-                      <img src="imgs/home1.jpeg" class="responsive-img">
-                      <p class="center-align">House Style Name</p>
-                  </a>
-                </div>
-                <div class="col l12 m12 s12">
-                  <a href="#">
-                      <img src="imgs/home2.jpeg" class="responsive-img">
-                      <p class="center-align">House Style Name</p>
-                  </a>
-                </div>
-              </div>
-            </div>
+            ';
+            }
+
+          }
+          ?>
+
+
           </div>
         </div>
       </section>
