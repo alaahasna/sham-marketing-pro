@@ -1,0 +1,40 @@
+body{
+  background-color: #FFF;
+}
+input {
+	border-radius: 0px !important;
+}
+input[type="submit"]{
+	background-color: #970b0b;
+}
+input[type="submit"]:hover {
+	background-color: #970b0b;
+}
+#cp_login-form {
+	margin-top: 60px;
+	width: 60%;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+@media only screen and (max-width: 480px){
+	#cp_login-form {
+		width: 80%;
+	}
+}
+.login-logo {
+	height: 170px;
+}
+.login-logo img {
+	margin: 20px auto 0px auto;
+	max-width: 250px;
+	max-height: 250px;
+}
+#cp_login-container {
+	width: 40%;
+}
+@media only screen and (max-width: 766px) {
+	#cp_login-container {
+		width: 80%;
+	}
+}
