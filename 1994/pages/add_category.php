@@ -52,7 +52,7 @@ if(isset($_POST['add'])){
             <table class="table" style="width: 80%;">
             <form action="index.php?cpages=pages/add_category" method="post" enctype="multipart/form-data">
             <tr>
-                <td>Picture</td>
+                <td>Picture <span style="color: #333;font-size: 1rem;">(720x480)</span></td>
                 <td><input type="file" name="pic" class="form-control" required="required" /></td>
             </tr>
             <tr>

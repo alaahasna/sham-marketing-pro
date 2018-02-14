@@ -72,10 +72,10 @@ include "lib/main.php";
       <section class="deals">
         <div class="container">
           <div class="row">
-            <div class="col l8 hide-on-med-and-down">
+            <div class="col l6 hide-on-med-and-down">
               <img src="imgs/deal.jpg" class="responsive-img">
             </div>
-            <div class="col l4 s12 center-align">
+            <div class="col l6 s12 center-align">
               <h2>Shopping Now</h2>
               <p>Deal of the Day</p>
               <h1 class="deal-name">
@@ -102,7 +102,7 @@ include "lib/main.php";
           while($products_1 = @mysql_fetch_assoc($select_products_1)){
             if($i1 == 1){
             echo '
-            <div class="col l6 m6 s12">
+            <div class="col l6 m6 s12 center-align">
               <a href="product.php?id='.$products_1['id'].'">
                 <img src="images/'.$products_1['pic'].'" alt="'.$products_1['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_1['title'].'</p>
@@ -112,7 +112,7 @@ include "lib/main.php";
             $i1++;
             }else{
             echo '
-            <div class="col l3 m3 s12">
+            <div class="col l3 m3 s12 center-align">
               <a href="product.php?id='.$products_1['id'].'">
                 <img src="images/'.$products_1['pic'].'" alt="'.$products_1['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_1['title'].'</p>
@@ -144,7 +144,7 @@ include "lib/main.php";
           while($products_2 = @mysql_fetch_assoc($select_products_2)){
             if($i2 == 1){
             echo '
-            <div class="col l6 m6 s12">
+            <div class="col l6 m6 s12 center-align">
               <a href="product.php?id='.$products_2['id'].'">
                 <img src="images/'.$products_2['pic'].'" alt="'.$products_2['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_2['title'].'</p>
@@ -154,7 +154,7 @@ include "lib/main.php";
             $i2++;
             }else{
             echo '
-            <div class="col l3 m3 s12">
+            <div class="col l3 m3 s12 center-align">
               <a href="product.php?id='.$products_2['id'].'">
                 <img src="images/'.$products_2['pic'].'" alt="'.$products_2['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_2['title'].'</p>

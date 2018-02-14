@@ -1,0 +1,59 @@
+@import "style.scss";
+.single-product {
+	margin: 120px auto 40px auto;
+	.product-image {
+		margin: 20px auto;
+		img {
+			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+			transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+			&:hover {
+				box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+			}
+		}
+	}
+	.product-name {
+		h5 {
+			font-size: 1.8rem;
+			font-weight: bold;
+			color: $black;
+		}
+		span {
+			font-size: 1.6rem;
+			color: $gold;
+			font-weight: bold;
+		}
+	}
+	.product-desc {
+		p {
+			font-size: 1rem;
+			font-weight: bold;
+		}
+	}
+	.countity {
+		input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+			border-bottom: 1px solid $gold;
+		    -webkit-box-shadow: 0 1px 0 0 $gold;
+		    box-shadow: 0 1px 0 0 $gold;
+			}
+		}
+	.add-to-cart {
+		a {
+			border-radius: 10px;
+			background-color: $black;
+			color:$gold;
+		}
+	}
+	.other-images {
+		margin: 40px auto;
+		padding: 20px 0px;
+		border-top: 1px solid $gold;
+		img {
+			margin: 5px auto;
+			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+			transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+			&:hover {
+				box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+			}
+		}
+	}
+}

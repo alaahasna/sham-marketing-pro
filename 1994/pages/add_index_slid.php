@@ -50,7 +50,7 @@ if(isset($_POST['add'])){
             <form action="index.php?cpages=pages/add_index_slid" method="post" enctype="multipart/form-data">
 
             <tr>
-                <td>Picture</td>
+                <td>Picture <span style="color: #333;font-size: 1rem;">(876x320)</span></td>
                 <td><input type="file" name="pic" class="form-control" /></td>
             </tr>
             <tr>

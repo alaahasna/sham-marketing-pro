@@ -1,5 +1,5 @@
 section {
-  margin: 120px auto !important; }
+  margin: 50px auto; }
 
 .modal {
   border-radius: 15px; }
@@ -63,7 +63,7 @@ nav {
     nav .nav-content .category a.dropdown-trigger {
       background-color: transparent;
       box-shadow: none;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       padding-right: 0; }
     nav .nav-content .category i {
       line-height: 50px;

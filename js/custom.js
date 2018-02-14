@@ -1,8 +1,10 @@
 $(document).ready(function (){
 	  $('.slider').slider({
 	  	indicators: true,
-	  	height: 480,
+	  	height: 320,
+	  	interval: 1500
 	  });
+	 $('.materialboxed').materialbox();
 	 $('.modal').modal();
 
 	  $('.dropdown-trigger').dropdown({
