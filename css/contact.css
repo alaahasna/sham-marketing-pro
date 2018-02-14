@@ -324,34 +324,39 @@ footer {
     color: #202020;
     font-weight: bold; }
 
-.purchased {
-  margin-top: 75px; }
-  .purchased .product {
-    margin: 10px auto;
-    position: relative;
-    padding-bottom: 10px;
+.contact {
+  margin: 120px auto 40px auto;
+  position: relative; }
+  .contact .contact-form {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .purchased .product:hover {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
-    .purchased .product .product-price {
-      padding: 10px;
-      background-color: #202020;
-      color: #ca9f39;
-      position: absolute;
-      top: 0;
-      right: 0; }
-    .purchased .product .product-content {
-      padding: 10px; }
-      .purchased .product .product-content .product-desc {
-        max-height: 250px;
-        overflow: hidden; }
-      .purchased .product .product-content .product-category span {
-        color: #ca9f39;
-        font-weight: bold; }
-      .purchased .product .product-content .product-link a {
-        border-radius: 10px;
-        background-color: #202020;
-        color: #ca9f39; }
+    padding: 20px; }
+    .contact .contact-form input:not([type]):focus:not([readonly]), .contact .contact-form input[type=text]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=password]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=email]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=url]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=time]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=date]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=datetime]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=datetime-local]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=tel]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=number]:not(.browser-default):focus:not([readonly]), .contact .contact-form input[type=search]:not(.browser-default):focus:not([readonly]), .contact .contact-form textarea.materialize-textarea:focus:not([readonly]) {
+      border-bottom-color: #ca9f39;
+      box-shadow: 0 1px 0 0 #ca9f39; }
+    .contact .contact-form input:not([type]):focus:not([readonly]) + label, .contact .contact-form input[type=text]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=password]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=email]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=url]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=time]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=date]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=tel]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=number]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form input[type=search]:not(.browser-default):focus:not([readonly]) + label, .contact .contact-form textarea.materialize-textarea:focus:not([readonly]) + label {
+      color: #ca9f39; }
+    .contact .contact-form label.active {
+      color: #ca9f39; }
+    .contact .contact-form .input-field .prefix.active {
+      color: #ca9f39; }
+    .contact .contact-form input[type="submit"] {
+      border-radius: 10px;
+      background: #202020;
+      color: #ca9f39; }
+  .contact .contact-message {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../imgs/service3.jpg") center center no-repeat fixed;
+    background-size: cover;
+    padding: 10px;
+    height: 454px;
+    position: absolute;
+    top: 17%;
+    left: 7.86%;
+    width: 25.4%;
+    z-index: 0; }
+    .contact .contact-message h4 {
+      color: #fff; }
+    .contact .contact-message p {
+      color: #fff;
+      width: 250px; }
 
-/*# sourceMappingURL=products.css.map */
+/*# sourceMappingURL=contact.css.map */

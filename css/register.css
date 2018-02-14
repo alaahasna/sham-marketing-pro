@@ -324,34 +324,28 @@ footer {
     color: #202020;
     font-weight: bold; }
 
-.purchased {
-  margin-top: 75px; }
-  .purchased .product {
-    margin: 10px auto;
-    position: relative;
-    padding-bottom: 10px;
+.register {
+  margin: 50px auto; }
+  .register form {
+    margin: 40px auto;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .purchased .product:hover {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
-    .purchased .product .product-price {
+    padding: 40px !important; }
+    .register form .profile-icon {
+      text-align: center;
       padding: 10px;
+      color: #202020;
+      font-size: 5rem; }
+    .register form input:not([type]):focus:not([readonly]), .register form input[type=text]:not(.browser-default):focus:not([readonly]), .register form input[type=password]:not(.browser-default):focus:not([readonly]), .register form input[type=email]:not(.browser-default):focus:not([readonly]), .register form input[type=url]:not(.browser-default):focus:not([readonly]), .register form input[type=time]:not(.browser-default):focus:not([readonly]), .register form input[type=date]:not(.browser-default):focus:not([readonly]), .register form input[type=datetime]:not(.browser-default):focus:not([readonly]), .register form input[type=datetime-local]:not(.browser-default):focus:not([readonly]), .register form input[type=tel]:not(.browser-default):focus:not([readonly]), .register form input[type=number]:not(.browser-default):focus:not([readonly]), .register form input[type=search]:not(.browser-default):focus:not([readonly]), .register form textarea.materialize-textarea:focus:not([readonly]) {
+      border-color: #ca9f39;
+      box-shadow: 0 1px 0 0 #ca9f39; }
+    .register form input:not([type]):focus:not([readonly]) + label, .register form input[type=text]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=password]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=email]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=url]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=time]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=date]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=tel]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=number]:not(.browser-default):focus:not([readonly]) + label, .register form input[type=search]:not(.browser-default):focus:not([readonly]) + label, .register form textarea.materialize-textarea:focus:not([readonly]) + label {
+      color: #ca9f39; }
+    .register form .input-field .prefix.active {
+      color: #ca9f39; }
+    .register form .submit-button {
+      margin: 10px auto;
+      border-radius: 10px;
       background-color: #202020;
-      color: #ca9f39;
-      position: absolute;
-      top: 0;
-      right: 0; }
-    .purchased .product .product-content {
-      padding: 10px; }
-      .purchased .product .product-content .product-desc {
-        max-height: 250px;
-        overflow: hidden; }
-      .purchased .product .product-content .product-category span {
-        color: #ca9f39;
-        font-weight: bold; }
-      .purchased .product .product-content .product-link a {
-        border-radius: 10px;
-        background-color: #202020;
-        color: #ca9f39; }
+      color: #ca9f39; }
 
-/*# sourceMappingURL=products.css.map */
+/*# sourceMappingURL=register.css.map */

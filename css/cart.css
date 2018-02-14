@@ -324,10 +324,27 @@ footer {
     color: #202020;
     font-weight: bold; }
 
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-color: #ca9f39;
+  box-shadow: 0 1px 0 0 #ca9f39; }
+
+input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-default):focus:not([readonly]) + label, input[type=password]:not(.browser-default):focus:not([readonly]) + label, input[type=email]:not(.browser-default):focus:not([readonly]) + label, input[type=url]:not(.browser-default):focus:not([readonly]) + label, input[type=time]:not(.browser-default):focus:not([readonly]) + label, input[type=date]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, input[type=tel]:not(.browser-default):focus:not([readonly]) + label, input[type=number]:not(.browser-default):focus:not([readonly]) + label, input[type=search]:not(.browser-default):focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #ca9f39; }
+
 .cart {
-  margin: 150px auto; }
+  margin: 90px auto; }
   .cart .fa-close {
     color: red; }
+  .cart input[type="submit"] {
+    background-color: #202020;
+    color: #ca9f39;
+    border-radius: 10px;
+    display: block;
+    width: 100%; }
+    .cart input[type="submit"]:hover {
+      background-color: #202020;
+      color: #ca9f39;
+      border-radius: 10px; }
 
 .cart_mobile .item {
   margin: 10px auto;
@@ -340,9 +357,10 @@ footer {
       font-size: 1.3rem; }
     .cart_mobile .item .item-content span {
       color: green; }
-    .cart_mobile .item .item-content a {
+    .cart_mobile .item .item-content input[type="submit"], .cart_mobile .item .item-content a {
       background-color: #202020;
       color: #ca9f39;
-      margin: 10px auto; }
+      margin: 10px auto;
+      font-size: 0.8rem; }
 
 /*# sourceMappingURL=cart.css.map */

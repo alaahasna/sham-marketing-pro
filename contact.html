@@ -8,7 +8,7 @@
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-      <link rel="stylesheet" type="text/css" href="css/cart.css">
+      <link rel="stylesheet" type="text/css" href="css/contact.css">
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -221,117 +221,57 @@
             </div>
           </div>
       </nav>
-      <section class="cart">
+      <section class="contact">
         <div class="container">
           <div class="section-title center-align">
-            <h2>Cart </h2>
+            <h1>Contact Us</h1>
           </div>
-          <table class="bordered striped responsive-table centered hide-on-med-and-down">
-            <thead>
-              <tr>
-                  <th>Product Image</th>
-                  <th>Item Name</th>
-                  <th>Item Price</th>
-                  <th>Countity</th>
-                  <th>Drop Item</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td><img src="imgs/fashion1.jpeg" width="100" class="responsive-img"></td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>
-                  <div class="input-field">
-                    <input type="number" name="countity">
-                  </div>
-                </td>
-                <td><a href="#"><i class="fa fa-close"></i></a></td>
-              </tr>
-              <tr>
-                <td><img src="imgs/fashion1.jpeg" width="100" class="responsive-img"></td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>
-                  <div class="input-field">
-                    <input type="number" name="countity">
-                  </div>
-                </td>
-                <td><a href="#"><i class="fa fa-close"></i></a></td>
-              </tr>
-              <tr>
-                <td><img src="imgs/fashion1.jpeg" width="100" class="responsive-img"></td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>
-                  <div class="input-field">
-                    <input type="number" name="countity">
-                  </div>
-                </td>
-                <td><a href="#"><i class="fa fa-close"></i></a></td>
-              </tr>
-              <tr>
-                <td><img src="imgs/fashion1.jpeg" width="100" class="responsive-img"></td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>
-                  <div class="input-field">
-                    <input type="number" name="countity">
-                  </div>
-                </td>
-                <td><a href="#"><i class="fa fa-close"></i></a></td>
-              </tr>
-            </tbody>
-
-          </table>
-          <div class="update-clear-cart hide-on-med-and-down">
-            <div class="row">
-              <div class="col l6">
-                <td class="center-align">
-                  <input type="submit" class="btn btn-float" value="Update Cart" name="update">
-                </td>
-              </div>
-              <div class="col l6">
-                <td>
-                  <input type="submit" class="btn btn-float" value="Clear Cart" name="clear">
-                </td>
+          <div class="row">
+            <div class="col l3 hide-on-med-and-down">
+              <div class="contact-message">
+              <h4>Contact Us</h4>
+              <p>We Would be so glad to hear from you a message!</p>
               </div>
             </div>
-          </div>
-          <div class="cart_mobile hide-on-large-only">
-            <div class="row">
-              <div class="col m6 s12">
-                <div class="item">
-                  <div class="container">
+            <div class="col l9 m12 s12">
+              <div class="contact-form">
+                <div class="row">
+                  <form class="col s12">
                     <div class="row">
-                      <div class="col-sm-6">
-                        <img src="imgs/fashion1.jpeg" class="responsive-img">
+                      <div class="input-field col l6 m6 s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="first_name" type="text" class="validate" required="required">
+                        <label for="first_name">First Name</label>
                       </div>
-                      <div class="item-content">
-                        <div class="row">
-                            <div class="col s6">
-                              <h6>Item Name</h6>
-                            </div>
-                            <div class="col s12">
-                              <span>Item Price</span>
-                            </div>
-                            <div class="col s12">
-                              <div class="input-field">
-                                <input id="countity" type="number" name="countity">
-                                <label for="countity">Countity</label>
-                              </div>
-                            </div>
-                            <div class="col m12 s6">
-                              <input type="submit" class="btn btn-float" value="Delete Item">
-                            </div>
-                            <div class="col m12 s6">
-                              <input type="submit" class="btn btn-float" value="Update Item Countity">
-                            </div>
-                          </div>
+                      <div class="input-field col l6 m6 s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="last_name" type="text" class="validate" required="required">
+                        <label for="last_name">Last Name</label>
                       </div>
                     </div>
-                  </div>
+                    <div class="row">
+                      <div class="input-field col l6 m6 s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" type="email" class="validate" required="required">
+                        <label for="email">Email</label>
+                      </div>
+                      <div class="input-field col l6 m6 s12">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="phone" type="text" class="validate">
+                        <label for="phone">Phone Number(optional)</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col l12">
+                        <i class="material-icons prefix">message</i>
+                        <textarea id="message" class="materialize-textarea"></textarea>
+                        <label for="message">Type Your Message..</label>
+                      </div>
+                    </div>
+                      <div class="input-field col s12 center-align">
+                        <input type="submit" value="Send" class="submit-button validate btn btn-float">
+                      </div>
+                  </form>
                 </div>
               </div>
             </div>
