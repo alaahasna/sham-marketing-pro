@@ -54,11 +54,40 @@ include "lib/main.php";
             while($last_4_categories = @mysql_fetch_assoc($select_last_4_categories)){
               echo '
               <div class="col l6 m3 s12">
-                <a href="#">
+                <a href="#branch-category-in-header" class="modal-trigger">
                   <img src="images/'.$last_4_categories['pic'].'" class="responsive-img" title="'.$last_4_categories['category_name'].'">
                   <p class="category-name center-align">'.$last_4_categories['category_name'].'</p>
 
                 </a>
+              </div>
+            <!-- Branch of Category Modal Structure -->
+              <div id="branch-category-in-header" class="modal branch">
+                <div class="modal-content center-align">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col l4 m6 s12">
+                        <a href="#">
+                          <h6>Branch Name</h6>
+                        </a>
+                      </div>
+                      <div class="col l4 m6 s12">
+                        <a href="#">
+                          <h6>Branch Name</h6>
+                        </a>
+                      </div>
+                      <div class="col l4 m6 s12">
+                        <a href="#">
+                          <h6>Branch Name</h6>
+                        </a>
+                      </div>
+                      <div class="col l4 m6 s12">
+                        <a href="#">
+                          <h6>Branch Name</h6>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               ';
             }
@@ -246,7 +275,7 @@ include "lib/main.php";
               echo '
                <div class="col l12 m12 s12">
                 <div class="item">
-                  <a href="#">
+                  <a href="#branch-categories-section" class="modal-trigger">
                     <div class="category-image">
                       <img src="images/'.$categories['pic'].'" class="responsive-img" alt="'.$categories['category_name'].'">
                     </div>
@@ -259,12 +288,40 @@ include "lib/main.php";
               ';
             }
             ?>
+
             </div>
           </div>
         </div>
       </section>
-      
-
+        <!-- Branch of Category Modal Structure -->
+        <div id="branch-categories-section" class="modal branch">
+          <div class="modal-content center-align">
+            <div class="container">
+              <div class="row">
+                <div class="col l4 m6 s12">
+                  <a href="#">
+                    <h6>Branch Name</h6>
+                  </a>
+                </div>
+                <div class="col l4 m6 s12">
+                  <a href="#">
+                    <h6>Branch Name</h6>
+                  </a>
+                </div>
+                <div class="col l4 m6 s12">
+                  <a href="#">
+                    <h6>Branch Name</h6>
+                  </a>
+                </div>
+                <div class="col l4 m6 s12">
+                  <a href="#">
+                    <h6>Branch Name</h6>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       <section class="panel-electronic">
         <div class="container-fluid">
         <?php

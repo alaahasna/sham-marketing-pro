@@ -152,7 +152,6 @@
               $select_nav_category = @mysql_query("select * from category") or die(mysql_error());
               while($nav_category = @mysql_fetch_assoc($select_nav_category)){
                 echo '
-               <div class="col l2">
                   <div class="category">
                       <!-- Dropdown Trigger -->
                       <a class="dropdown-trigger btn" href="#" data-target="dropdown'.$nav_category['id'].'">'.$nav_category['category_name'].'</a>
@@ -187,7 +186,6 @@
                         </li>
                       </ul>
                   </div>
-                </div>
                 ';
               }
             }
