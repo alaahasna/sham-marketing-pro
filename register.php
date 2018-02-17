@@ -29,6 +29,8 @@ if(isset($_POST['signup'])){
     ('".$first_name."','".$last_name."','".$new_password."','".$address."','".$email."','".$phone."',NOW(),'Site','0')
     ") or die(mysql_error());
 
+    mail($email,$main_settings['site_name'],"Thank You for register in ".$main_settings['site_name'],'Content-type: text/html; charset=utf-8');
+
     //Login after sign up
     $select_user_id = @mysql_query("select id from users where email='".$email."'") or die(mysql_error());
     $user_id = @mysql_fetch_assoc($select_user_id);
