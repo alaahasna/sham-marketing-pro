@@ -273,7 +273,7 @@
                 <input type="password" name="password" id="password" placeholder="Password..">
                 <a href="#" onclick="login()" class="btn btn-float">Login</a>
                 <a href="register.php" class="btn btn-block btn-float signup">SIGN UP</a>
-                <p class="center-align">Login Or SignUp using:</p>
+                <!--<p class="center-align">Login Or SignUp using:</p>
                 <div class="center-align">
                   <div class="facebook">
                     <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
@@ -281,7 +281,7 @@
                   <div class="google">
                     <a href="#"><i class="fa fa-google fa-2x"></i></a>
                   </div>
-                </div>
+                </div>-->
               </div>
             </div>
           </div>
