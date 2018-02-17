@@ -27,9 +27,9 @@ if(isset($_POST['add'])){
                 }
               }
                  $add_cat_1 = @mysql_query("insert into products
-                 (title,ar_title,description,ar_description,category_id,price,put_in_daily_deals,value_of_discount,price_after_discount,view_in_index,pic,quantity)
+                 (title,ar_title,description,ar_description,category_id,price,put_in_daily_deals,value_of_discount,price_after_discount,view_in_index,pic,quantity,deleted_product)
                  values
-                 ('".$title."','".$ar_title."','".$description."','".$ar_description."','".$category_id."','".$price."','".$put_in_daily_deals."','".$value_of_discount."','".$price_after_discount."','".$view_in_index."','".$newfilename1."','".$quantity."')") or die(mysql_error());
+                 ('".$title."','".$ar_title."','".$description."','".$ar_description."','".$category_id."','".$price."','".$put_in_daily_deals."','".$value_of_discount."','".$price_after_discount."','".$view_in_index."','".$newfilename1."','".$quantity."','No')") or die(mysql_error());
                  }
 
          error_message_with_link("Done.","index.php?cpages=pages/add_product");

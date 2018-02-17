@@ -2,6 +2,10 @@
 if(isset($_GET['id'])){
   $gid = safe_input($_GET['id']);
 }
+
+if(isset($_GET['sub_id'])){
+  $sub_id = safe_input($_GET['sub_id']);
+}
 $folder = "../images/";
 
               $fname1 = &$_FILES['pic']['name'];
@@ -31,6 +35,7 @@ $product = @mysql_fetch_assoc($select_products);
         $value_of_discount = $_POST['value_of_discount'];
         $price_after_discount = $_POST['price_after_discount'];
         $view_in_index = $_POST['view_in_index'];
+        $quantity = $_POST['quantity'];
 
               $update_category = @mysql_query("update products set
         title='$title',
@@ -42,6 +47,7 @@ $product = @mysql_fetch_assoc($select_products);
         put_in_daily_deals='$put_in_daily_deals',
         value_of_discount='$value_of_discount',
         price_after_discount='$price_after_discount',
+        quantity='$quantity',
         view_in_index='$view_in_index'
         where id='".$gid."'") or die(mysql_error());
         }
@@ -49,6 +55,30 @@ $product = @mysql_fetch_assoc($select_products);
         if(isset($update_category)){
     header("Location: index.php?cpages=pages/edit_product_by_id&id=".$gid."");
   }
+
+  if(isset($_POST['add'])){
+    $fnamesub1 = &$_FILES['sub_pic']['name'];
+              // For File 1
+              if(!empty($fnamesub1)){
+                $file_ext1 = pathinfo($fnamesub1, PATHINFO_EXTENSION);
+                $newfilenamesub = "sub_Product_".Date("d-m-y-h-m-s-a_").rand(00000,99999).".".$file_ext1;
+                $ftmpsub = &$_FILES['sub_pic']['tmp_name'];
+                if(move_uploaded_file($ftmpsub,$folder.$newfilenamesub)){
+                 $add_sub_pic = @mysql_query("insert into sub_products (pic,product_id) values ('".$newfilenamesub."','".$gid."')") or die(mysql_error());
+                }else{
+                  die(error_message_with_link("File not uploaded!!","index.php?cpages=pages/edit_product_by_id&id=".$gid.""));
+                }
+              }
+  }
+
+  if(isset($_GET['confirm']) and $_GET['confirm'] == 'no'){
+      confirm_message("Delete This?","index.php?cpages=pages/edit_product_by_id&id=".$gid."&sub_id=".$sub_id."&confirm=yes","index.php?cpages=pages/edit_product_by_id&id=".$gid);
+    }
+
+    if(isset($_GET['confirm']) and $_GET['confirm'] == 'yes'){
+      $delete_team = @mysql_query("DELETE FROM sub_products WHERE id='".$sub_id."'") or die(mysql_error());
+      header("Location: index.php?cpages=pages/edit_product_by_id&id=".$gid."");
+    }
 ?>
 <!--1-->
 <div class="row">
@@ -113,6 +143,10 @@ $product = @mysql_fetch_assoc($select_products);
                 </td>
             </tr>
             <tr>
+                <td>Quantity</td>
+                <td><input type="text" name="quantity" required="required" class="form-control" value="<?php echo $product['quantity'];?>" /></td>
+            </tr>
+            <tr>
                 <td>Price</td>
                 <td><input type="text" name="price" required="required" class="form-control" value="<?php echo $product['price'];?>" /></td>
             </tr>
@@ -146,6 +180,31 @@ $product = @mysql_fetch_assoc($select_products);
                     <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="edit" value="Edit" /></td>
             </tr>
             </form>
+            <tr>
+                <th colspan="2"><center>Add Sub-Pictures</center></th>
+            </tr>
+            <form action="index.php?cpages=pages/edit_product_by_id&id=<?php echo $gid;?>" method="post" enctype="multipart/form-data">
+            <tr>
+                <td>Sub-Picture</td>
+                <td><input type="file" name="sub_pic" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="add" value="Add" /></td>
+            </tr>
+            </form>
+            <?php
+            $select_sub_products = @mysql_query("select * from sub_products where product_id='".$gid."' order by id desc") or die(mysql_error());
+            while($sub_products = @mysql_fetch_assoc($select_sub_products)){
+              echo '
+            <tr>
+               <td colspan="2" align="center">
+               <a href="index.php?cpages=pages/edit_sub_product_by_id&id='.$sub_products['id'].'"><input type="image" src="../images/icn_edit.png" title="Edit"></a> &nbsp;&nbsp;
+                <a href="index.php?cpages=pages/edit_product_by_id&id='.$gid.'&confirm=no&sub_id='.$sub_products['id'].'"><input type="image" src="../images/icn_trash.png" title="Delete"></a> &nbsp;&nbsp;<br />
+               <img src="../images/'.$sub_products['pic'].'" width="300px" alt="" /></td>
+            </tr>
+              ';
+            }
+            ?>
             </table>
 <!--1
 <div class="showback">

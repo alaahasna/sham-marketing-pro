@@ -20,8 +20,9 @@
               $create_table_index_slid = @mysql_query("CREATE TABLE IF NOT EXISTS index_slid(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), pic LONGTEXT NOT NULL, title LONGTEXT NOT NULL, description LONGTEXT NOT NULL, ar_title LONGTEXT NOT NULL, ar_description LONGTEXT NOT NULL)");
               $create_table_category = @mysql_query("CREATE TABLE IF NOT EXISTS category(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), pic LONGTEXT NOT NULL, category_name LONGTEXT NOT NULL, ar_category_name LONGTEXT NOT NULL, view_in_index_in_part LONGTEXT NOT NULL)");
               $create_table_sub_category = @mysql_query("CREATE TABLE IF NOT EXISTS sub_category(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), title LONGTEXT NOT NULL, ar_title LONGTEXT NOT NULL, category_id int NOT NULL)");
-              $create_table_products = @mysql_query("CREATE TABLE IF NOT EXISTS products(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), pic LONGTEXT NOT NULL,title LONGTEXT NOT NULL, ar_title LONGTEXT NOT NULL,description LONGTEXT NOT NULL,ar_description LONGTEXT NOT NULL, category_id int NOT NULL, price float NOT NULL, put_in_daily_deals VARCHAR(25) NOT NULL, value_of_discount int NOT NULL, price_after_discount float NOT NULL, view_in_index VARCHAR(25) NOT NULL, quantity int NOT NULL)");
-              $create_table_users = @mysql_query("CREATE TABLE IF NOT EXISTS users(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), first_name LONGTEXT NOT NULL,last_name LONGTEXT NOT NULL, password LONGTEXT NOT NULL,email LONGTEXT NOT NULL,phone LONGTEXT NOT NULL, address LONGTEXT NOT NULL, register_date date NOT NULL)");
+              $create_table_products = @mysql_query("CREATE TABLE IF NOT EXISTS products(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), pic LONGTEXT NOT NULL,title LONGTEXT NOT NULL, ar_title LONGTEXT NOT NULL,description LONGTEXT NOT NULL,ar_description LONGTEXT NOT NULL, category_id int NOT NULL, price float NOT NULL, put_in_daily_deals VARCHAR(25) NOT NULL, value_of_discount int NOT NULL, price_after_discount float NOT NULL, view_in_index VARCHAR(25) NOT NULL, quantity int NOT NULL, deleted_product varchar(25) NOT NULL)");
+              $create_table_sub_products = @mysql_query("CREATE TABLE IF NOT EXISTS sub_products(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), pic LONGTEXT NOT NULL, product_id int NOT NULL)");
+              $create_table_users = @mysql_query("CREATE TABLE IF NOT EXISTS users(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), first_name LONGTEXT NOT NULL,last_name LONGTEXT NOT NULL, password LONGTEXT NOT NULL,email LONGTEXT NOT NULL,phone LONGTEXT NOT NULL, address LONGTEXT NOT NULL, register_date date NOT NULL, register_by LONGTEXT NOT NULL, social_media_id int NOT NULL)");
               $create_table_cart = @mysql_query("CREATE TABLE IF NOT EXISTS cart(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), session_id LONGTEXT NOT NULL, product_id int NOT NULL, quantity int NOT NULL, date_of_add datetime NOT NULL, requested VARCHAR(10) NOT NULL)");
               $create_table_request_product = @mysql_query("CREATE TABLE IF NOT EXISTS request_product(id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY(id), user_id int NOT NULL, session_id LONGTEXT NOT NULL, ok_from_admin LONGTEXT NOT NULL)");
             }
@@ -173,7 +174,7 @@
                                   while($nav_products = @mysql_fetch_assoc($select_nav_products)){
 
                                   echo '
-                                  <a href="#">'.$nav_products['title'].'</a>
+                                  <a href="single.php?id='.$nav_products['id'].'">'.$nav_products['title'].'</a>
                                   ';
                                   }
 
@@ -190,7 +191,7 @@
               }
             }
 
-            function nav_bar(){
+            function nav_bar($session){
               echo '
               <nav>
         <div class="nav-wrapper">
@@ -204,13 +205,31 @@
             <li><a href="categories.php">Categories</a></li>
             <li><a href="products.php">Products</a></li>
             <li><a href="services.php">Services</a></li>
-            <li><a href="services.php">Daily Deals</a></li>
+            <li><a href="deals.php">Daily Deals</a></li>
             <li><a href="about.php">About Us</a></li>
             <li><a href="contact.php">Contact Us</a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
             <li><a href="cart.php"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
+            ';
+            if($session == 'with_out_session'){
+              echo '
             <li><a href="#login" class="modal-trigger"><i class="fa fa-user fa-2x"></i></a></li>
+              ';
+            }else{
+              $select_user_name = @mysql_query("select first_name,last_name from users where id='".$session."'") or die(mysql_error());
+              $user_name = @mysql_fetch_assoc($select_user_name);
+              echo '
+            <li><a href="#" class="modal-trigger"><i class="fa fa-user fa-2x"></i> Hello, '.$user_name['first_name'].'</a></li>
+           <!-- <ul class="dropdown-menu">
+                <li><a href="user-info.php">My Profile</a></li>
+                <li><a href="purchased-items.php">Purchased Items</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul> -->
+
+              ';
+            }
+            echo '
             <li><a href="#search" class="modal-trigger"><i class="fa fa-search fa-2x"></i></a></li>
             <li><a href="ar/">Arabic</a></li>
           </ul>
@@ -220,7 +239,7 @@
             <li><a href="categories.php">Categories</a></li>
             <li><a href="products.php">Products</a></li>
             <li><a href="services.php">Services</a></li>
-            <li><a href="daily-deals.php">Daily Deals</a></li>
+            <li><a href="deals.php">Daily Deals</a></li>
             <li><a href="about.php">About Us</a></li>
             <li><a href="contact.php">Contact Us</a></li>
             <li><a href="cart.php">Cart</a></li>
@@ -242,15 +261,17 @@
             </div>
           </div>
         </div>
+        <script type="text/javascript" src="login.js"></script>
          <!-- Search Modal Structure -->
         <div id="login" class="modal">
           <div class="modal-content center-align">
             <div class="container">
               <div class="row">
                 <h4>Sign In</h4>
-                <input type="text" name="username" placeholder="Email or Username..">
-                <input type="password" name="password" placeholder="Password..">
-                <input type="submit" value="Login" class="btn btn-float">
+                <p id="error" style="color: red; margin: -28px;"> &nbsp;</p>
+                <input type="text" name="username" id="username"  placeholder="Email..">
+                <input type="password" name="password" id="password" placeholder="Password..">
+                <a href="#" onclick="login()" class="btn btn-float">Login</a>
                 <a href="register.php" class="btn btn-block btn-float signup">SIGN UP</a>
                 <p class="center-align">Login Or SignUp using:</p>
                 <div class="center-align">
@@ -278,7 +299,44 @@
               ';
             }
 
+            function footer(){
 
+            $select_main_settings = @mysql_query("select * from main_settings");
+            $main_settings = @mysql_fetch_assoc($select_main_settings);
+
+              ?>
+      <footer>
+        <div class="container">
+          <div class="social-media">
+            <div class="facebook">
+              <a href="<?php echo $main_settings['facebook_link'];?>">
+                <i class="fa fa-facebook fa-2x"></i>
+              </a>
+            </div>
+            <div class="youtube">
+              <a href="<?php echo $main_settings['youtube_link'];?>">
+                <i class="fa fa-youtube fa-2x"></i>
+              </a>
+            </div>
+            <div class="linkedin">
+              <a href="<?php echo $main_settings['linkedin_link'];?>">
+                <i class="fa fa-linkedin fa-2x"></i>
+              </a>
+            </div>
+            <div class="instagram">
+              <a href="<?php echo $main_settings['instagram_link'];?>">
+                <i class="fa fa-instagram fa-2x"></i>
+              </a>
+            </div>
+          </div>
+          <p class="terms center-align">
+            <?php echo $main_settings['copyrights'];?>
+          </p>
+          <p class="center-align syweb">Made With <span style="color:red;"> <i class="fa fa-heart"></i> </span> By <a href="http://www.syweb.co/" style="color: #FFF;">SYweb</a></p>
+        </div>
+      </footer>
+              <?php
+            }
             connect_db();
             create_db();
             defult_values();

@@ -23,7 +23,15 @@ include "lib/main.php";
     </head>
 
     <body>
-      <?php nav_bar();?>
+
+      <?php
+        if(isset($_SESSION['US_id'])){
+        nav_bar($_SESSION['US_id']);
+        }else{
+        nav_bar('with_out_session');
+        }
+      ?>
+
       <header>
         <div class="row">
         <div class="col l8 m12 s12">
@@ -54,41 +62,13 @@ include "lib/main.php";
             while($last_4_categories = @mysql_fetch_assoc($select_last_4_categories)){
               echo '
               <div class="col l6 m3 s12">
-                <a href="#branch-category-in-header" class="modal-trigger">
+                <a href="#branch-categories-section'.$last_4_categories['id'].'" class="modal-trigger">
                   <img src="images/'.$last_4_categories['pic'].'" class="responsive-img" title="'.$last_4_categories['category_name'].'">
                   <p class="category-name center-align">'.$last_4_categories['category_name'].'</p>
 
                 </a>
               </div>
-            <!-- Branch of Category Modal Structure -->
-              <div id="branch-category-in-header" class="modal branch">
-                <div class="modal-content center-align">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col l4 m6 s12">
-                        <a href="#">
-                          <h6>Branch Name</h6>
-                        </a>
-                      </div>
-                      <div class="col l4 m6 s12">
-                        <a href="#">
-                          <h6>Branch Name</h6>
-                        </a>
-                      </div>
-                      <div class="col l4 m6 s12">
-                        <a href="#">
-                          <h6>Branch Name</h6>
-                        </a>
-                      </div>
-                      <div class="col l4 m6 s12">
-                        <a href="#">
-                          <h6>Branch Name</h6>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
               ';
             }
             ?>
@@ -110,7 +90,7 @@ include "lib/main.php";
               <h1 class="deal-name">
                 The best of discount
               </h1>
-              <a class="btn btn-float btn-block" href="daily-deals.php">Show Deals</a>
+              <a class="btn btn-float btn-block" href="deals.php">Show Deals</a>
             </div>
           </div>
         </div>
@@ -126,13 +106,13 @@ include "lib/main.php";
           </div>
           <div class="row">
           <?php
-          $select_products_1 = @mysql_query("select * from products where category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='1') ) order by id desc limit 5") or die(mysql_error());
+          $select_products_1 = @mysql_query("select * from products where deleted_product='No' and category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='1') ) order by id desc limit 5") or die(mysql_error());
           $i1 = 1;
           while($products_1 = @mysql_fetch_assoc($select_products_1)){
             if($i1 == 1){
             echo '
             <div class="col l6 m6 s12 center-align">
-              <a href="product.php?id='.$products_1['id'].'">
+              <a href="single.php?id='.$products_1['id'].'">
                 <img src="images/'.$products_1['pic'].'" alt="'.$products_1['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_1['title'].'</p>
               </a>
@@ -142,7 +122,7 @@ include "lib/main.php";
             }else{
             echo '
             <div class="col l3 m3 s12 center-align">
-              <a href="product.php?id='.$products_1['id'].'">
+              <a href="single.php?id='.$products_1['id'].'">
                 <img src="images/'.$products_1['pic'].'" alt="'.$products_1['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_1['title'].'</p>
               </a>
@@ -168,13 +148,13 @@ include "lib/main.php";
           </div>
           <div class="row">
           <?php
-          $select_products_2 = @mysql_query("select * from products where category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='2') ) order by id desc limit 5") or die(mysql_error());
+          $select_products_2 = @mysql_query("select * from products where deleted_product='No' and category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='2') ) order by id desc limit 5") or die(mysql_error());
           $i2 = 1;
           while($products_2 = @mysql_fetch_assoc($select_products_2)){
             if($i2 == 1){
             echo '
             <div class="col l6 m6 s12 center-align">
-              <a href="product.php?id='.$products_2['id'].'">
+              <a href="single.php?id='.$products_2['id'].'">
                 <img src="images/'.$products_2['pic'].'" alt="'.$products_2['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_2['title'].'</p>
               </a>
@@ -184,7 +164,7 @@ include "lib/main.php";
             }else{
             echo '
             <div class="col l3 m3 s12 center-align">
-              <a href="product.php?id='.$products_2['id'].'">
+              <a href="single.php?id='.$products_2['id'].'">
                 <img src="images/'.$products_2['pic'].'" alt="'.$products_2['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_2['title'].'</p>
               </a>
@@ -206,7 +186,7 @@ include "lib/main.php";
           </div>
           <div class="row">
           <?php
-          $select_last_products = @mysql_query("select * from products order by id desc limit 4") or die(mysql_error());
+          $select_last_products = @mysql_query("select * from products where deleted_product='No' order by id desc limit 4") or die(mysql_error());
           while($last_products = @mysql_fetch_assoc($select_last_products)){
             if($last_products['price_after_discount'] == 0) $price = $last_products['price']; else $price = "<i class='fa fa-star' title='Discount'></i> <b>".$last_products['price_after_discount']."</b>";
             echo '
@@ -218,7 +198,7 @@ include "lib/main.php";
                 <div class="card-content">
                   <span class="card-title">'.$last_products['title'].'</span>
                   <p>'.$price.' $</p>
-                  <a class="btn btn-float" href="product.php?id='.$last_products['id'].'">Show Product</a>
+                  <a class="btn btn-float" href="single.php?id='.$last_products['id'].'">Show Product</a>
                 </div>
               </div>
             </div>
@@ -236,13 +216,13 @@ include "lib/main.php";
           <div class="row">
             <div class="owl-one owl-carousel">
             <?php
-          $select_popular_products = @mysql_query("select * from products where view_in_index='Yes' order by RAND() limit 15") or die(mysql_error());
+          $select_popular_products = @mysql_query("select * from products where deleted_product='No' and view_in_index='Yes' order by RAND() limit 15") or die(mysql_error());
           while($popular_products = @mysql_fetch_assoc($select_popular_products)){
             if($popular_products['price_after_discount'] == 0) $price = $popular_products['price']; else $price = "<i class='fa fa-star' title='Discount'></i> <b>".$popular_products['price_after_discount']."</b>";
             echo '
             <div class="col l12 m12 s12">
                 <div class="item">
-                    <a href="product.php?id='.$popular_products['id'].'">
+                    <a href="single.php?id='.$popular_products['id'].'">
                       <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
                           <img class="activator" src="images/'.$popular_products['pic'].'" alt="'.$popular_products['title'].'">
@@ -275,7 +255,7 @@ include "lib/main.php";
               echo '
                <div class="col l12 m12 s12">
                 <div class="item">
-                  <a href="#branch-categories-section" class="modal-trigger">
+                  <a href="#branch-categories-section'.$categories['id'].'" class="modal-trigger">
                     <div class="category-image">
                       <img src="images/'.$categories['pic'].'" class="responsive-img" alt="'.$categories['category_name'].'">
                     </div>
@@ -293,35 +273,36 @@ include "lib/main.php";
           </div>
         </div>
       </section>
+      <?php
+      $select_category_section = @mysql_query("select id from category order by id desc") or die(mysql_error());
+      while($category_section = @mysql_fetch_assoc($select_category_section)){
+        echo '
         <!-- Branch of Category Modal Structure -->
-        <div id="branch-categories-section" class="modal branch">
+        <div id="branch-categories-section'.$category_section['id'].'" class="modal branch">
           <div class="modal-content center-align">
             <div class="container">
               <div class="row">
+              ';
+              $select_sub_category_section = @mysql_query("select * from sub_category where category_id='".$category_section['id']."'") or die(mysql_error());
+              while($sub_category_section = @mysql_fetch_assoc($select_sub_category_section)){
+                echo '
                 <div class="col l4 m6 s12">
-                  <a href="#">
-                    <h6>Branch Name</h6>
+                  <a href="products.php?category_id='.$sub_category_section['id'].'">
+                    <h6>'.$sub_category_section['title'].'</h6>
                   </a>
                 </div>
-                <div class="col l4 m6 s12">
-                  <a href="#">
-                    <h6>Branch Name</h6>
-                  </a>
-                </div>
-                <div class="col l4 m6 s12">
-                  <a href="#">
-                    <h6>Branch Name</h6>
-                  </a>
-                </div>
-                <div class="col l4 m6 s12">
-                  <a href="#">
-                    <h6>Branch Name</h6>
-                  </a>
-                </div>
+                ';
+              }
+
+              echo '
               </div>
             </div>
           </div>
         </div>
+        ';
+      }
+      ?>
+
       <section class="panel-electronic">
         <div class="container-fluid">
         <?php
@@ -333,13 +314,13 @@ include "lib/main.php";
           </div>
           <div class="row">
           <?php
-          $select_products_3 = @mysql_query("select * from products where category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='3') ) order by id desc limit 5") or die(mysql_error());
+          $select_products_3 = @mysql_query("select * from products where deleted_product='No' and category_id in (select id from sub_category where category_id = (select id from category where view_in_index_in_part='3') ) order by id desc limit 5") or die(mysql_error());
           $i3 = 1;
           while($products_3 = @mysql_fetch_assoc($select_products_3)){
             if($i3 == 1){
             echo '
             <div class="col l6 m6 s12">
-              <a href="product.php?id='.$products_3['id'].'">
+              <a href="single.php?id='.$products_3['id'].'">
                 <img src="images/'.$products_3['pic'].'" alt="'.$products_3['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_3['title'].'</p>
               </a>
@@ -349,7 +330,7 @@ include "lib/main.php";
             }else{
             echo '
             <div class="col l3 m3 s12">
-              <a href="product.php?id='.$products_3['id'].'">
+              <a href="single.php?id='.$products_3['id'].'">
                 <img src="images/'.$products_3['pic'].'" alt="'.$products_3['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_3['title'].'</p>
               </a>
@@ -364,36 +345,9 @@ include "lib/main.php";
           </div>
         </div>
       </section>
-      <footer>
-        <div class="container">
-          <div class="social-media">
-            <div class="facebook">
-              <a href="<?php echo $main_settings['facebook_link'];?>">
-                <i class="fa fa-facebook fa-2x"></i>
-              </a>
-            </div>
-            <div class="youtube">
-              <a href="<?php echo $main_settings['youtube_link'];?>">
-                <i class="fa fa-youtube fa-2x"></i>
-              </a>
-            </div>
-            <div class="linkedin">
-              <a href="<?php echo $main_settings['linkedin_link'];?>">
-                <i class="fa fa-linkedin fa-2x"></i>
-              </a>
-            </div>
-            <div class="instagram">
-              <a href="<?php echo $main_settings['instagram_link'];?>">
-                <i class="fa fa-instagram fa-2x"></i>
-              </a>
-            </div>
-          </div>
-          <p class="terms center-align">
-            <?php echo $main_settings['copyrights'];?>
-          </p>
-          <p class="center-align syweb">Made With <span style="color:red;"> <i class="fa fa-heart"></i> </span> By <a href="http://www.syweb.co/" style="color: #FFF;">SYweb</a></p>
-        </div>
-      </footer>
+
+      <?php footer();?>
+
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>

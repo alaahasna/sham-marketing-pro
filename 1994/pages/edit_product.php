@@ -7,11 +7,11 @@ if(isset($_GET['id']))
     }
 
     if(isset($_GET['confirm']) and $_GET['confirm'] == 'yes'){
-      $delete_product = @mysql_query("DELETE FROM products WHERE id='".$gid."'") or die(mysql_error());
+      $delete_product = @mysql_query("update products set deleted_product='Yes' WHERE id='".$gid."'") or die(mysql_error());
       header("Location: index.php?cpages=pages/edit_product");
     }
 
-    $select_products = @mysql_query("select * from products") or die(mysql_error());
+    $select_products = @mysql_query("select * from products where deleted_product='No' order by id desc") or die(mysql_error());
 ?><!--1-->
 <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 new-link-box">
