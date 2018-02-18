@@ -220,12 +220,13 @@
               $select_user_name = @mysql_query("select first_name,last_name from users where id='".$session."'") or die(mysql_error());
               $user_name = @mysql_fetch_assoc($select_user_name);
               echo '
-            <li><a href="#" class="modal-trigger"><i class="fa fa-user fa-2x"></i> Hello, '.$user_name['first_name'].'</a></li>
-           <!-- <ul class="dropdown-menu">
-                <li><a href="user-info.php">My Profile</a></li>
-                <li><a href="purchased-items.php">Purchased Items</a></li>
-                <li><a href="logout.php">Logout</a></li>
-            </ul> -->
+            <li><a href="#user-dropdown" data-beloworigin="true" class="dropdown-button" data-activates="user-dropdown"><i class="fa fa-user fa-2x"></i> Hello, '.$user_name['first_name'].'</a></li>
+            <!-- Dropdown Structure -->"
+           <ul id="user-dropdown" class="dropdown-content">
+             <li><a href="user-info.php">My Profile</a></li>
+             <li><a href="purchased-items.php">Purchased Items</a></li>
+             <li><a href="logout.php">Log out</a></li>
+           </ul>
 
               ';
             }
