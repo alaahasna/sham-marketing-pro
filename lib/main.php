@@ -271,7 +271,7 @@
                 <p id="error" style="color: red; margin: -28px;"> &nbsp;</p>
                 <input type="text" name="username" id="username"  placeholder="Email..">
                 <input type="password" name="password" id="password" placeholder="Password..">
-                <a href="#" onclick="login()" class="btn btn-float">Login</a>
+                <a href="#" name="login" onclick="login()" class="btn btn-float signin">Login</a>
                 <a href="register.php" class="btn btn-block btn-float signup">SIGN UP</a>
                 <!--<p class="center-align">Login Or SignUp using:</p>
                 <div class="center-align">

@@ -37,7 +37,7 @@
 			}
 		}
 	.add-to-cart {
-		a {
+		input[name="add_to_cart"] {
 			border-radius: 10px;
 			background-color: $black;
 			color:$gold;

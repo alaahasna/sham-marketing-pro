@@ -6,6 +6,29 @@ $lato: "Lato";
 section {
 	margin: 50px auto;
 }
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+	border-bottom-color: $gold;
+	box-shadow: 0 1px 0 0 $gold;
+}
+input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+	color: $gold;
+}
+label.active {
+	color: $gold;
+}
+.input-field .prefix.active {
+	color: $gold;
+}
+.pagination {
+	span {
+		background-color: $gold;
+		color: $black;
+	}
+	a.btn {
+		background-color: $black;
+		color: $gold;
+	}
+}
 .modal {
 	border-radius: 15px;
 }
@@ -145,7 +168,7 @@ nav {
 					box-shadow: 0 1px 0 0 $gold;
 				}
 			}
-		input[type="submit"] {
+		a.signin {
 			background-color: $gold;
 			color: $black;
 		}

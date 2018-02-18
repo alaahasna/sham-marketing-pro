@@ -56,6 +56,12 @@ $(document).ready(function (){
 	        }
 	    }
 	 });
+     $("#username, #password").keyup(function(event){
+    	if(event.keyCode === 13){
+    		event.preventDefault();
+    		$("a[name='login']").click();
+    	}
+    });
  // 	$(".tab").each(function (){
  // 		var dataActive = $(this).attr("data-trigger");
  // 	 	$(this).click(function(e){
