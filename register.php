@@ -84,11 +84,11 @@ if(isset($_POST['signup'])){
     <body>
 
       <?php
-      if(isset($_SESSION['US_id'])){
-      nav_bar($_SESSION['US_id']);
-      }else{
-      nav_bar('with_out_session');
-      }
+        if(isset($_SESSION['US_id'])){
+        nav_bar($_SESSION['US_id'],session_id());
+        }else{
+        nav_bar('with_out_session',session_id());
+        }
       ?>
 
       <section class="register">

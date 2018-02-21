@@ -28,9 +28,9 @@ $about = @mysql_fetch_assoc($select_about);
 
       <?php
         if(isset($_SESSION['US_id'])){
-        nav_bar($_SESSION['US_id']);
+        nav_bar($_SESSION['US_id'],session_id());
         }else{
-        nav_bar('with_out_session');
+        nav_bar('with_out_session',session_id());
         }
       ?>
 

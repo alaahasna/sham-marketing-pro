@@ -18,9 +18,16 @@ if($product_info['price_after_discount'] == 0) $price = $product_info['price']; 
 if(isset($_POST['add_to_cart'])){
   $quantity = safe_input($_POST['quantity']);
   if(!empty($quantity)){
-  if($quantity <= $product_info['quantity']){
+    if($product_info['value_of_discount'] == 0){
+    if($product_info['quantity'] >= 9) $max_of_quantity1 = 9; else $max_of_quantity1 = $product_info['quantity'];
+    }else{
+    $max_of_quantity1 = 1;
+    }
+  if($quantity <= $max_of_quantity1){
    $session_id = session_id();
-
+   $select_product_in_cart = @mysql_query("select * from cart where session_id='".$session_id."' and product_id='".$gid."' and product_id = (select id from products where value_of_discount != 0)") or die(mysql_error());
+   $num_product_in_cart = @mysql_num_rows($select_product_in_cart);
+   if($num_product_in_cart == 0){
    $add_to_cart = @mysql_query("insert into cart
    (session_id,product_id,quantity,date_of_add,requested)
    values
@@ -29,7 +36,9 @@ if(isset($_POST['add_to_cart'])){
 
    //Update Quantity:
    $update_quantity = @mysql_query("update products set products.quantity=products.quantity-1 where id='".$gid."'") or die(mysql_error());
-
+   }else{
+    error_message_with_link("This product has discount and you are bought from this product in this 24 hours!","single.php?id=".$gid);
+   }
    if(isset($update_quantity)){
      error_message_with_link("Product has been added to cart successfly.","single.php?id=".$gid);
    }
@@ -39,7 +48,10 @@ if(isset($_POST['add_to_cart'])){
   }
 }
 
+
+
 ?>
+
   <!DOCTYPE html>
   <html>
     <head>
@@ -62,9 +74,9 @@ if(isset($_POST['add_to_cart'])){
 
     <?php
         if(isset($_SESSION['US_id'])){
-        nav_bar($_SESSION['US_id']);
+        nav_bar($_SESSION['US_id'],session_id());
         }else{
-        nav_bar('with_out_session');
+        nav_bar('with_out_session',session_id());
         }
       ?>
 
@@ -86,7 +98,14 @@ if(isset($_POST['add_to_cart'])){
               </div>
               <div class="countity">
                 <label for="countity">Quantity</label>
-                <input id="countity" type="number" name="quantity" required="required" />
+                <?php
+                if($product_info['value_of_discount'] == 0){
+                if($product_info['quantity'] >= 9) $max_of_quantity = 9; else $max_of_quantity = $product_info['quantity'];
+                }else{
+                $max_of_quantity = 1;
+                }
+                ?>
+                <input id="countity" type="number" name="quantity" min="1" max="<?php echo $max_of_quantity;?>" required="required" />
               </div>
               <div class="add-to-cart">
                 <input type="submit" name="add_to_cart" class="btn btn-float btn-block" value="Add To Cart" />

@@ -42,7 +42,7 @@
 	</style>
 </head>
 <body>
-	<img src="imgs/404.png" class="responsive-img">
+	<img src="imgs/404.png" alt="Sham Pro 404" class="responsive-img">
 	<div class="Error">
 		<h1>404</h1>
 		<p>Sorry, This Page Not Found</p>

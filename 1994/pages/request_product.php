@@ -28,8 +28,10 @@
 <!--1-->
             <h3>Products Requests</h3>
 
-            <table class="table" style="width: 80%;">
+            <input id="searchUser" class="search-content" type="search" placeholder="Search by Request number" onkeyup="searchUser()">
+            <table id="users-table" class="table" style="width: 80%;">
             <tr>
+                <th>Request number</th>
                 <th>Name</th>
                 <th>Address</th>
                 <th>Phone</th>
@@ -41,8 +43,10 @@
                 while($team = @mysql_fetch_assoc($select_team)){
                 $select_user_info = @mysql_query("select * from users where id='".$team['user_id']."'") or die(mysql_error());
                 $user_info = @mysql_fetch_assoc($select_user_info);
+                $request_number = $team['id'] + 10000;
                   echo '
                     <tr>
+                        <td>'. $request_number.'</td>
                         <td>'.stripcslashes($user_info['first_name'] . " " .$user_info['last_name']).'</td>
                         <td>'.stripcslashes($user_info['address']).'</td>
                         <td>'.stripcslashes($user_info['phone']).'</td>

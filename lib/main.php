@@ -62,7 +62,7 @@
 
             function error_message($message){
               echo '
-              <div class="mfp-wrap mfp-gallery mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="overflow-x: hidden; overflow-y: auto;">
+              <div class="mfp-wrap mfp-gallery mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="margin-top: 200px; overflow-x: hidden; overflow-y: auto;">
               <div class="mfp-container mfp-s-ready mfp-image-holder" style="background: rgba(0, 0, 0, 0.59); ">
               <div class="mfp-content" style="top: -20px;text-align: center;color: #000;padding: 35px 35px 20px 35px;background-color: #fff;border: 1px solid #000;box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);padding-left: 15px;padding-right: 15px;">
 
@@ -77,7 +77,7 @@
 
             function error_message_with_link($message,$link){
               echo '
-              <div class="mfp-wrap mfp-gallery mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="overflow-x: hidden; overflow-y: auto;">
+              <div class="mfp-wrap mfp-gallery mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="margin-top: 200px; overflow-x: hidden; overflow-y: auto;">
               <div class="mfp-container mfp-s-ready mfp-image-holder" style="background: rgba(0, 0, 0, 0.59); ">
               <div class="mfp-content" style="top: -20px;text-align: center;color: #000;padding: 35px 35px 20px 35px;background-color: #fff;border: 1px solid #000;box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);padding-left: 15px;padding-right: 15px;">
 
@@ -92,7 +92,7 @@
 
             function confirm_message($message,$ok_link,$no_link){
               echo '
-              <div class="mfp-wrap mfp-gallery mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="overflow-x: hidden; overflow-y: auto;">
+              <div class="mfp-wrap mfp-gallery mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="margin-top: 200px; overflow-x: hidden; overflow-y: auto;">
               <div class="mfp-container mfp-s-ready mfp-image-holder" style="background: rgba(0, 0, 0, 0.59); ">
               <div class="mfp-content" style="top: -20px;text-align: center;color: #000;padding: 35px 35px 20px 35px;background-color: #fff;border: 1px solid #000;box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);padding-left: 15px;padding-right: 15px;">
               <p><strong>'.$message.'</strong></p><br>
@@ -191,7 +191,7 @@
               }
             }
 
-            function nav_bar($session){
+            function nav_bar($session,$session_id){
               echo '
               <nav>
         <div class="nav-wrapper">
@@ -210,7 +210,11 @@
             <li><a href="contact.php">Contact Us</a></li>
           </ul>
           <ul class="right hide-on-med-and-down">
-            <li><a href="cart.php"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
+          ';
+          $select_num_cart = @mysql_query("select sum(quantity) as sum_quantity from cart where session_id='".$session_id."' and requested='No'") or die(mysql_error());
+          $num_cart = @mysql_fetch_assoc($select_num_cart);
+          echo '
+            <li><a href="cart.php"><i class="fa fa-shopping-cart fa-2x"></i><span style="color: red;">'.$num_cart['sum_quantity'].'</span></a></li>
             ';
             if($session == 'with_out_session'){
               echo '
@@ -269,13 +273,14 @@
             <div class="container">
               <div class="row">
                 <h4>Sign In</h4>
-                <p id="error" style="color: red; margin: -28px;"> &nbsp;</p>
+                <p id="error" style="color: red; margin: -30px;"> &nbsp;</p>
                 <input type="text" name="username" id="username"  placeholder="Email..">
                 <input type="password" name="password" id="password" placeholder="Password..">
                 <a href="#" name="login" onclick="login()" class="btn btn-float signin">Login</a>
                 <a href="register.php" class="btn btn-block btn-float signup">SIGN UP</a>
-                <!--<p class="center-align">Login Or SignUp using:</p>
-                <div class="center-align">
+                <a href="forget-password.php" class="center-align" style="color: #000; margin-top: -10px; text-decoration: underline;">Forget your password? click here..</a>
+                <!--<p class="center-align" style="margin-top: -20px;">Login Or SignUp using:</p>
+                <div class="center-align" style="margin-top: -20px;">
                   <div class="facebook">
                     <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
                   </div>

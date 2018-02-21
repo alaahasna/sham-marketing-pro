@@ -26,9 +26,9 @@ include "lib/main.php";
 
       <?php
         if(isset($_SESSION['US_id'])){
-        nav_bar($_SESSION['US_id']);
+        nav_bar($_SESSION['US_id'],session_id());
         }else{
-        nav_bar('with_out_session');
+        nav_bar('with_out_session',session_id());
         }
       ?>
 
@@ -82,7 +82,7 @@ include "lib/main.php";
         <div class="container">
           <div class="row">
             <div class="col l6 hide-on-med-and-down">
-              <img src="imgs/deal.jpg" class="responsive-img">
+              <img src="imgs/Another-Walkabout-On-Beauty-And-Fashion-min.png" class="responsive-img">
             </div>
             <div class="col l6 s12 center-align">
               <h2>Shopping Now</h2>
@@ -228,7 +228,7 @@ include "lib/main.php";
                           <img class="activator" src="images/'.$popular_products['pic'].'" alt="'.$popular_products['title'].'">
                         </div>
                         <div class="card-content">
-                          <span class="card-title activator grey-text text-darken-4" title="'.$popular_products['title'].'">'.mb_substr($popular_products['title'],0,12,'UTF-8').'..</span>
+                          <span class="card-title activator grey-text text-darken-4" title="'.$popular_products['title'].'">'.mb_substr($popular_products['title'],0,10,'UTF-8').'..</span>
                           <p>'.$price.' $</p>
                         </div>
                       </div>
@@ -303,7 +303,7 @@ include "lib/main.php";
       }
       ?>
 
-      <section class="panel-electronic">
+      <section class="panel-home">
         <div class="container-fluid">
         <?php
         $select_main_category_part_3 = @mysql_query("select * from category where view_in_index_in_part='3'") or die(mysql_error());
@@ -319,17 +319,17 @@ include "lib/main.php";
           while($products_3 = @mysql_fetch_assoc($select_products_3)){
             if($i3 == 1){
             echo '
-            <div class="col l6 m6 s12">
+            <div class="col l6 m6 s12 center-align">
               <a href="single.php?id='.$products_3['id'].'">
                 <img src="images/'.$products_3['pic'].'" alt="'.$products_3['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_3['title'].'</p>
               </a>
             </div>
             ';
-            $i2++;
+            $i3++;
             }else{
             echo '
-            <div class="col l3 m3 s12">
+            <div class="col l3 m3 s12 center-align">
               <a href="single.php?id='.$products_3['id'].'">
                 <img src="images/'.$products_3['pic'].'" alt="'.$products_3['title'].'" class="responsive-img">
                 <p class="center-align">'.$products_3['title'].'</p>
