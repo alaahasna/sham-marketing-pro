@@ -1,0 +1,18 @@
+@import "style.scss";
+section {
+	margin: 50px auto;
+}
+.search_result {
+	.section-title {
+		margin-top: 70px;
+	}
+	.card {
+	margin: 20px auto;
+	a.btn {
+		margin: 5px auto;
+		border-radius: 10px;
+		background-color: $black;
+		color: $gold;
+	}
+}
+}

@@ -6,7 +6,7 @@ include "lib/main.php";
   <!DOCTYPE html>
   <html>
     <head>
-      <link rel="shortcut icon" href="imgs/Logo.png" type="image/x-icon">
+      <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
       <meta charset="utf-8">
       <title><?php echo $main_settings['site_name'];?> | Contact us</title>
       <!--Import Google Icon Font-->

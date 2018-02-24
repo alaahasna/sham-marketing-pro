@@ -1,0 +1,49 @@
+@import "style.scss";
+
+.contact {
+	margin: 120px auto 40px auto;
+	position: relative;
+	.contact-form {
+		box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		padding: 20px;
+		input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+			border-bottom-color: $gold;
+			box-shadow: 0 1px 0 0 $gold;
+		}
+		input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+			color: $gold;
+		}
+		label.active {
+			color: $gold;
+		}
+		.input-field .prefix.active {
+			color: $gold;
+		}
+		input[type="submit"]{
+			border-radius: 10px;
+			background: $black;
+			color: $gold;
+		}
+	}
+	.contact-message{
+		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../imgs/2.jpg") center center no-repeat fixed;
+	    background-size: cover;
+	    padding: 10px;
+	    height: 454px;
+	    position: absolute;
+	    top: 17%;
+	    left: 7.86%;
+	    width: 25.4%;
+	    z-index: 0;
+		h4 {
+			color: $white;
+		}
+		p {
+			color: $white;
+			width: 250px;
+		}
+	}
+	.otherways {
+
+	}
+}

@@ -30,7 +30,7 @@ $link = "deals.php?";
   <!DOCTYPE html>
   <html>
     <head>
-      <link rel="shortcut icon" href="imgs/Logo.png" type="image/x-icon">
+      <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
       <meta charset="utf-8">
       <title><?php echo $main_settings['site_name'];?> | Daily Deals</title>
       <!--Import Google Icon Font-->

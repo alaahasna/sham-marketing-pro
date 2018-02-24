@@ -45,7 +45,7 @@ function send_password($email,$submit){
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel="shortcut icon" href="imgs/Logo.png" type="image/x-icon">
+      <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
       <meta charset="utf-8">
       <title><?php echo $main_settings['site_name'];?> | Forget Password</title>
     <!--Import Google Icon Font-->
@@ -74,7 +74,7 @@ function send_password($email,$submit){
       <div class="container">
         <form action="forget-password.php" method="post">
           <div class="input-field">
-            <input type="email" name="email" id="forget-password" class="forget-password-input">
+            <input type="email" name="email" required="required" id="forget-password" class="forget-password-input">
             <label for="forget-password">Type Your Email</label>
             <input type="submit" name="send" value="Send to Email" class="btn btn-float submit-button">
           </div>

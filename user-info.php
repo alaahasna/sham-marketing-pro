@@ -82,7 +82,7 @@ if(!isset($_SESSION['US_id']) or !isset($_SESSION['US_test'])){
   <!DOCTYPE html>
   <html>
     <head>
-      <link rel="shortcut icon" href="imgs/Logo.png" type="image/x-icon">
+      <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
       <meta charset="utf-8">
       <title><?php echo $main_settings['site_name'];?> | Profile</title>
       <!--Import Google Icon Font-->
@@ -152,7 +152,7 @@ if(!isset($_SESSION['US_id']) or !isset($_SESSION['US_test'])){
                 </div>
               </div>
                 <div class="input-field col s12 center-align">
-                  <input type="submit" name="update" class="submit-button validate btn btn-float">
+                  <input type="submit" name="update" value="Edit" class="submit-button validate btn btn-float">
                 </div>
             </form>
           </div>
