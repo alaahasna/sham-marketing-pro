@@ -139,6 +139,9 @@ $admin_id = @mysql_fetch_assoc($select_admin_id);
       </a></li>
       <li <?php if($_GET['cpages'] == 'pages/add_index_slid' or $_GET['cpages'] == 'pages/edit_index_slid' or $_GET['cpages'] == 'pages/edit_index_slid_by_id' or $_GET['cpages'] == 'pages/delete_index_slid') echo 'class="active"';?>><a href="index.php?cpages=pages/edit_index_slid">
             <i class="fa fa-home" aria-hidden="true"></i> Index slider</a></li>
+      <li <?php if($_GET['cpages'] == 'pages/index_deals') echo 'class="active"';?>><a href="index.php?cpages=pages/index_deals">
+            <i class="fa fa-cogs"></i> Index Deals
+      </a></li>
       <li <?php if($_GET['cpages'] == 'pages/add_category' or $_GET['cpages'] == 'pages/edit_category' or $_GET['cpages'] == 'pages/edit_category_by_id') echo 'class="active"';?>><a href="index.php?cpages=pages/edit_category">
             <i class="fa fa-link" aria-hidden="true"></i> Categories</a></li>
       <li <?php if($_GET['cpages'] == 'pages/add_sub_category' or $_GET['cpages'] == 'pages/edit_sub_category' or $_GET['cpages'] == 'pages/edit_sub_category_by_id') echo 'class="active"';?>><a href="index.php?cpages=pages/edit_sub_category">

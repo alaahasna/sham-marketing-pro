@@ -25,7 +25,7 @@ if(isset($_POST['add_to_cart'])){
     }
   if($quantity <= $max_of_quantity1){
    $session_id = session_id();
-   $select_product_in_cart = @mysql_query("select * from cart where session_id='".$session_id."' and product_id='".$gid."' and product_id = (select id from products where value_of_discount != 0)") or die(mysql_error());
+   $select_product_in_cart = @mysql_query("select * from cart where session_id='".$session_id."' and product_id='".$gid."' and product_id = (select id from products where value_of_discount != 0 and id = '".$gid."')") or die(mysql_error());
    $num_product_in_cart = @mysql_num_rows($select_product_in_cart);
    if($num_product_in_cart == 0){
    $add_to_cart = @mysql_query("insert into cart

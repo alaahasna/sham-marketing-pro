@@ -23,7 +23,7 @@
                   $sum_price += $team['quantity'] * $product_info['price'];
                   echo '
                     <tr>
-                        <td>'.$product_info['title'].'</td>
+                        <td><a href="index.php?cpages=pages/edit_product_by_id&id='.$product_info['id'].'">'.$product_info['title'].'</a></td>
                         <td>'.$product_info['price'].'</td>
                         <td>'.$team['quantity'].'</td>
                         <td>'.$team['quantity'] * $product_info['price'].'</td>

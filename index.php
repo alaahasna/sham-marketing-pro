@@ -58,21 +58,34 @@ include "lib/main.php";
           <div class="category">
             <div class="row">
             <?php
-            $select_last_4_categories = @mysql_query("select * from category order by id desc limit 4") or die(mysql_error());
-            while($last_4_categories = @mysql_fetch_assoc($select_last_4_categories)){
-              echo '
-              <div class="col l6 m3 s12">
-                <a href="#branch-categories-section'.$last_4_categories['id'].'" class="modal-trigger">
-                  <img src="images/'.$last_4_categories['pic'].'" class="responsive-img" title="'.$last_4_categories['category_name'].'">
-                  <p class="category-name center-align">'.$last_4_categories['category_name'].'</p>
-
-                </a>
-              </div>
-
-              ';
-            }
+            $select_index_deals = @mysql_query("select * from index_deals") or die(mysql_error());
+            $index_deals = @mysql_fetch_assoc($select_index_deals);
             ?>
 
+              <div class="col l6 m3 s12">
+                <a href="<?php echo $index_deals['link1'];?>" class="modal-trigger">
+                  <img src="images/<?php echo $index_deals['pic1'];?>" class="responsive-img" title="<?php echo $index_deals['title1'];?>">
+                  <p class="category-name center-align"><?php echo $index_deals['title1'];?></p>
+                </a>
+              </div>
+              <div class="col l6 m3 s12">
+                <a href="<?php echo $index_deals['link2'];?>" class="modal-trigger">
+                  <img src="images/<?php echo $index_deals['pic2'];?>" class="responsive-img" title="<?php echo $index_deals['title2'];?>">
+                  <p class="category-name center-align"><?php echo $index_deals['title2'];?></p>
+                </a>
+              </div>
+              <div class="col l6 m3 s12">
+                <a href="<?php echo $index_deals['link3'];?>" class="modal-trigger">
+                  <img src="images/<?php echo $index_deals['pic3'];?>" class="responsive-img" title="<?php echo $index_deals['title3'];?>">
+                  <p class="category-name center-align"><?php echo $index_deals['title3'];?></p>
+                </a>
+              </div>
+              <div class="col l6 m3 s12">
+                <a href="<?php echo $index_deals['link4'];?>" class="modal-trigger">
+                  <img src="images/<?php echo $index_deals['pic4'];?>" class="responsive-img" title="<?php echo $index_deals['title4'];?>">
+                  <p class="category-name center-align"><?php echo $index_deals['title4'];?></p>
+                </a>
+              </div>
             </div>
           </div>
         </div>
