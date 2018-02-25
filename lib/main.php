@@ -243,10 +243,16 @@
           </ul>
 
           <ul class="sidenav" id="mobile-navbar">
-          <li><div class="user-view">
-            <a href="#!user"><img class="circle" src="imgs/user.svg"></a>
-            <a href="#!name"><span class="name">John Doe</span></a>
-          </div></li>
+          ';
+            if($session != 'with_out_session'){
+              echo '
+            <li><div class="user-view">
+              <a href="#!user"><img class="circle" src="imgs/user.svg"></a>
+              <a href="#!name"><span class="name">'.$user_name['first_name'].'</span></a>
+            </div></li>
+              ';
+            }
+            echo '
             <li><a href="index.php">Home</a></li>
             <li><a href="categories.php">Categories</a></li>
             <li><a href="products.php">Products</a></li>
@@ -255,7 +261,22 @@
             <li><a href="about.php">About Us</a></li>
             <li><a href="contact.php">Contact Us</a></li>
             <li><a href="cart.php">Cart</a></li>
+            ';
+            if($session == 'with_out_session'){
+              echo '
             <li><a href="#login" class="modal-trigger">Login</a></li>
+              ';
+            }else{
+              $select_user_name = @mysql_query("select first_name,last_name from users where id='".$session."'") or die(mysql_error());
+              $user_name = @mysql_fetch_assoc($select_user_name);
+              echo '
+             <li><a href="user-info.php" class="modal-trigger">My Profile</a></li>
+             <li><a href="purchased-items.php" class="modal-trigger">Purchased Items</a></li>
+             <li><a href="logout.php" class="modal-trigger">Log out</a></li>
+
+              ';
+            }
+            echo '
             <li><a href="ar/">Arabic</a></li>
           </ul>
         </div>
