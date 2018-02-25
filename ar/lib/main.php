@@ -261,7 +261,7 @@
           </ul>
         </div>
         <!-- Search Modal Structure -->
-        <div id="search" class="modal">
+        <div id="search" class="modal rtl">
           <div class="modal-content center-align">
             <div class="container">
               <div class="row">
@@ -276,13 +276,13 @@
         </div>
         <script type="text/javascript" src="login.js"></script>
          <!-- Search Modal Structure -->
-        <div id="login" class="modal">
+        <div id="login" class="modal rtl">
           <div class="modal-content center-align">
             <div class="container">
               <div class="row">
                 <h4>تسجيل الدخول</h4>
                 <p id="error" style="color: red; margin: -30px;"> &nbsp;</p>
-                <input type="text" name="username" id="username"  placeholder="البريد الإلكتروني">
+                <input type="text" name="username" id="username"  placeholder="البريد الإلكتروني" >
                 <input type="password" name="password" id="password" placeholder="كلمة المرور">
                 <a href="#" name="login" onclick="login()" class="btn btn-float signin">تسجيل الدخول</a>
                 <a href="register.php" class="btn btn-block btn-float signup">تسجيل حساب جديد</a>
@@ -300,7 +300,7 @@
             </div>
           </div>
         </div>
-          <div class="nav-content hide-on-med-and-down">
+          <div class="nav-content hide-on-med-and-down rtl">
             <div class="categories-list">
               <div class="row">
               ';
@@ -319,7 +319,7 @@
             $main_settings = @mysql_fetch_assoc($select_main_settings);
 
               ?>
-      <footer>
+      <footer class="rtl">
         <div class="container">
           <div class="social-media">
             <div class="facebook">

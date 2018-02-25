@@ -293,7 +293,7 @@ include "lib/main.php";
       while($category_section = @mysql_fetch_assoc($select_category_section)){
         echo '
         <!-- Branch of Category Modal Structure -->
-        <div id="branch-categories-section'.$category_section['id'].'" class="modal branch">
+        <div id="branch-categories-section'.$category_section['id'].'" class="modal branch rtl">
           <div class="modal-content center-align">
             <div class="container">
               <div class="row">
