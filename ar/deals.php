@@ -76,7 +76,7 @@ $link = "deals.php?";
                   <span>'.$deals['value_of_discount'].'%</span>
                 </div>
                 <div class="product-image">
-                  <img src="images/'.$deals['pic'].'" alt="'.$deals['ar_title'].'" class="responsive-img">
+                  <img src="../images/'.$deals['pic'].'" alt="'.$deals['ar_title'].'" class="responsive-img">
                 </div>
                 <div class="product-content">
                   <div class="product-name">
