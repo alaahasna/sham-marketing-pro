@@ -29,8 +29,9 @@ $(document).ready(function (){
 	    }
 	  );
 
-	$('.sidenav').sidenav();
-
+	$('.sidenav').sidenav({
+		edge: 'right'
+	});
 	 $(".owl-one").owlCarousel({
 	 	loop: false,
 	 	nav: true,

@@ -203,7 +203,7 @@
           <a href="index.php" class="brand-logo">
               <img src="imgs/logo.png" class="responsive-img" width="250">
           </a>
-          <a href="#" data-target="mobile-navbar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down rtl">
           <li><a href="contact.php">الإتصال بنا</a></li>
           <li><a href="about.php">من نحن</a></li>
@@ -243,7 +243,7 @@
             <li><a href="../">English</a></li>
           </ul>
 
-          <ul class="sidenav" id="mobile-navbar">
+          <ul class="sidenav" id="slide-out">
           ';
             if($session != 'with_out_session'){
               echo '
