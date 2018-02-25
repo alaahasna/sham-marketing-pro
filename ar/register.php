@@ -74,6 +74,8 @@ if(isset($_POST['signup'])){
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
+
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/register.css">
@@ -91,7 +93,7 @@ if(isset($_POST['signup'])){
         }
       ?>
 
-      <section class="register">
+      <section class="register rtl">
         <div class="container">
           <div class="row">
             <form class="col s12" method="post" action="register.php">

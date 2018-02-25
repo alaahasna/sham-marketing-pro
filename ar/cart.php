@@ -14,6 +14,7 @@ include "lib/main.php";
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/cart.css">
@@ -31,7 +32,7 @@ include "lib/main.php";
         }
       ?>
 
-      <section class="cart">
+      <section class="cart rtl">
       <form action="cart.php" method="post">
         <div class="container">
           <div class="section-title center-align">

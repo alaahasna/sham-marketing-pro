@@ -93,15 +93,22 @@ nav {
     nav ul a i.fa {
       font-size: 1.3rem;
       margin: 0px 10px; }
-    @media only screen and (min-width: 998px) and (max-width: 1020px) {
+    @media only screen and (min-width: 992px) and (max-width: 1115px) {
       nav ul a {
-        font-size: 0.9rem; } }
+        font-size: 0.8rem; } }
     nav ul a:hover {
       background-color: #ca9f39;
       color: #fff; }
   nav .sidenav-trigger i {
     color: #ca9f39;
     line-height: 90px !important; }
+  nav .sidenav .user-view {
+    text-align: center; }
+    nav .sidenav .user-view a img {
+      margin: 10px auto; }
+    nav .sidenav .user-view a span {
+      font-size: 1.3rem;
+      color: #202020; }
   nav .sidenav li a {
     color: #ca9f39; }
     nav .sidenav li a:hover {
@@ -129,6 +136,9 @@ nav {
         left: 0 !important;
         top: 50px !important;
         background-color: rgba(255, 255, 255, 0.9); }
+    @media only screen and (max-width: 991px) {
+      nav .nav-content .nav-left {
+        display: none; } }
   nav div#search h4 {
     color: #ca9f39; }
   nav div#search input[type="text"]:focus {

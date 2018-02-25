@@ -13,8 +13,10 @@ include "lib/main.php";
       <link href="https://fonts.googleapis.com/css?family=Exo+2|Lato" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Lateef" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="css/materialize-rtl.min.css">
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -32,7 +34,7 @@ include "lib/main.php";
         }
       ?>
 
-      <header>
+      <header class="rtl">
         <div class="row">
         <div class="col l8 m12 s12">
           <div class="slider">
@@ -108,7 +110,7 @@ include "lib/main.php";
           </div>
         </div>
       </section>
-      <section class="panel-fashion">
+      <section class="panel-fashion rtl">
         <div class="container-fluid">
         <?php
         $select_main_category_part_1 = @mysql_query("select * from category where view_in_index_in_part='1'") or die(mysql_error());
@@ -150,7 +152,7 @@ include "lib/main.php";
           </div>
         </div>
       </section>
-      <section class="panel-electronic">
+      <section class="panel-electronic rtl">
         <div class="container-fluid">
         <?php
         $select_main_category_part_2 = @mysql_query("select * from category where view_in_index_in_part='2'") or die(mysql_error());
@@ -192,7 +194,7 @@ include "lib/main.php";
           </div>
         </div>
       </section>
-      <section class="latest-products">
+      <section class="latest-products rtl">
         <div class="container-fluid">
           <div class="section-title">
             <h2>آخر المنتجات</h2>
@@ -221,7 +223,7 @@ include "lib/main.php";
           </div>
         </div>
       </section>
-      <section class="popular_products">
+      <section class="popular_products rtl">
         <div class="container-fluid">
           <div class="section-title">
             <h2>المنتجات الشائعة</h2>
@@ -255,7 +257,7 @@ include "lib/main.php";
           </div>
         </div>
       </section>
-      <section class="categories">
+      <section class="categories rtl">
         <div class="container-fluid">
           <div class="section-title">
             <h2>التصنيفات</h2>

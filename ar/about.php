@@ -17,6 +17,7 @@ $about = @mysql_fetch_assoc($select_about);
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/about.css">
@@ -34,7 +35,7 @@ $about = @mysql_fetch_assoc($select_about);
         }
       ?>
 
-      <section class="about-us-page">
+      <section class="about-us-page rtl">
         <div class="row">
           <div class="col l6 m12 hide-on-med-and-down">
             <div class="about-us">

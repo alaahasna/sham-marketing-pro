@@ -14,6 +14,7 @@ include "lib/main.php";
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/contact.css">
@@ -74,7 +75,7 @@ if(isset($_POST['send'])){
         }
       ?>
 
-      <section class="contact">
+      <section class="contact rtl">
         <div class="container">
           <div class="section-title center-align">
             <h1>الإتصال بنا</h1>

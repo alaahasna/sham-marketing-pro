@@ -17,6 +17,8 @@ $services = @mysql_fetch_assoc($select_services);
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
+
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/services.css">
@@ -34,7 +36,7 @@ $services = @mysql_fetch_assoc($select_services);
         }
       ?>
 
-      <section class="services">
+      <section class="services rtl">
         <div class="container-fluid">
           <div class="row">
             <div class="col s12">
@@ -52,7 +54,7 @@ $services = @mysql_fetch_assoc($select_services);
                 </div>
               </div>
               <div class="service">
-                <div class="row"> 
+                <div class="row">
                   <div class="col l6 s12">
                     <h2><?php echo $services['ar_title2'];?></h2>
                     <p>

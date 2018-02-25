@@ -63,6 +63,8 @@ if(isset($_POST['add_to_cart'])){
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
+
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/single.css">
@@ -80,7 +82,7 @@ if(isset($_POST['add_to_cart'])){
         }
       ?>
 
-      <section class="single-product">
+      <section class="single-product rtl">
         <div class="container">
           <div class="row">
             <div class="col l6 s12 center-align">

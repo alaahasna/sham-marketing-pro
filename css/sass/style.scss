@@ -116,8 +116,8 @@ nav {
 			color: $gold;
 			padding: 18px 8px;
 			font-size: 1rem;
-			@media only screen and (min-width: 998px) and (max-width: 1020px){
-				font-size: 0.9rem;
+			@media only screen and (min-width: 992px) and (max-width: 1115px){
+				font-size: 0.8rem;
 			}
 			&:hover {
 				background-color: $gold;
@@ -132,6 +132,18 @@ nav {
 		}
 	}
 	.sidenav {
+		.user-view {
+			text-align: center;
+			a {
+				img {
+					margin: 10px auto;
+				}
+				span {
+					font-size: 1.3rem;
+					color: $black;
+				}
+			}
+		}
 		li {
 			a {
 				color: $gold;
@@ -171,7 +183,11 @@ nav {
 		    	}
 		    }
 	    }
-
+			@media only screen and (max-width: 991px){
+				.nav-left {
+					display: none;
+				}
+			}
 	}
 	div#search {
 		h4 {

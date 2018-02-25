@@ -53,6 +53,8 @@ function send_password($email,$submit){
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
+
     <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/forget-password.css">
@@ -70,7 +72,7 @@ function send_password($email,$submit){
         }
       ?>
 
-    <div class="forget-password">
+    <div class="forget-password rtl">
       <div class="container">
         <form action="forget-password.php" method="post">
           <div class="input-field">

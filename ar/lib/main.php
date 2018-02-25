@@ -158,8 +158,9 @@
                 echo '
                   <div class="category">
                       <!-- Dropdown Trigger -->
-                      <a class="dropdown-trigger btn" href="#" data-target="dropdown'.$nav_category['id'].'">'.$nav_category['ar_category_name'].'</a>
-                      <i class="material-icons">expand_more</i>
+
+                      <a class="dropdown-trigger btn" href="#" data-target="dropdown'.$nav_category['id'].'"> <i class="material-icons">expand_more</i> '.$nav_category['ar_category_name'].' </a>
+
 
                       <!-- Dropdown Structure -->
                       <ul id="dropdown'.$nav_category['id'].'" class="dropdown-content">
@@ -197,22 +198,22 @@
             function nav_bar($session,$session_id){
               echo '
               <nav>
-        <div class="nav-wrapper">
-          <a class="right hide-on-large-only search-mid-screen modal-trigger" href="#search"><i class="fa fa-search fa-2x"></i></a>
+        <div class="nav-wrapper rtl">
+          <a class="left hide-on-large-only search-mid-screen modal-trigger" href="#search"><i class="fa fa-search fa-2x"></i></a>
           <a href="index.php" class="brand-logo">
               <img src="imgs/logo.png" class="responsive-img" width="250">
           </a>
           <a href="#" data-target="mobile-navbar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="left hide-on-med-and-down">
-            <li><a href="index.php">الرئيسية</a></li>
-            <li><a href="categories.php">التصنيفات</a></li>
-            <li><a href="products.php">المنتجات</a></li>
-            <li><a href="services.php">الخدمات</a></li>
-            <li><a href="deals.php">العروض اليومية</a></li>
-            <li><a href="about.php">من نحن</a></li>
-            <li><a href="contact.php">الإتصال بنا</a></li>
+          <ul class="right hide-on-med-and-down rtl">
+          <li><a href="contact.php">الإتصال بنا</a></li>
+          <li><a href="about.php">من نحن</a></li>
+          <li><a href="deals.php">العروض اليومية</a></li>
+          <li><a href="services.php">الخدمات</a></li>
+          <li><a href="products.php">المنتجات</a></li>
+          <li><a href="categories.php">التصنيفات</a></li>
+          <li><a href="index.php">الرئيسية</a></li>
           </ul>
-          <ul class="right hide-on-med-and-down">
+          <ul class="left hide-on-small-only nav-left">
           ';
           $select_num_cart = @mysql_query("select sum(quantity) as sum_quantity from cart where session_id='".$session_id."' and requested='No'") or die(mysql_error());
           $num_cart = @mysql_fetch_assoc($select_num_cart);
@@ -243,6 +244,10 @@
           </ul>
 
           <ul class="sidenav" id="mobile-navbar">
+            <li><div class="user-view">
+              <a href="#!user"><img class="circle" src="imgs/user.svg"></a>
+              <a href="#!name"><span class="name">John Doe</span></a>
+            </div></li>
             <li><a href="index.php">الرئيسية</a></li>
             <li><a href="categories.php">التصنيفات</a></li>
             <li><a href="products.php">المنتجات</a></li>
@@ -251,7 +256,7 @@
             <li><a href="about.php">من نحن</a></li>
             <li><a href="contact.php">الإتصال بنا</a></li>
             <li><a href="cart.php">سلة الشراء</a></li>
-            <li><a href="#login">تسجيل الدخول</a></li>
+            <li><a href="#login" class="modal-trigger">تسجيل الدخول</a></li>
             <li><a href="../">English</a></li>
           </ul>
         </div>

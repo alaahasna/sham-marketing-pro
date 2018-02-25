@@ -53,6 +53,7 @@ if(isset($_GET['category_id'])){
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/products.css">
@@ -68,7 +69,7 @@ if(isset($_GET['category_id'])){
         nav_bar('with_out_session',session_id());
         }
       ?>
-      <section class="products">
+      <section class="products rtl">
         <div class="container">
           <div class="section-title center-align">
             <h1>المنتجات</h1>
@@ -118,7 +119,7 @@ if(isset($_GET['category_id'])){
 <?php
 if($currentpage == 1){
 echo '
-<span class="btn btn-default.disabled"><i class="material-icons">chevron_left</i></span>
+<span class="btn btn-default.disabled"><i class="material-icons">chevron_right</i></span>
 ';
 } else{
 echo '

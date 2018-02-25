@@ -90,6 +90,8 @@ if(!isset($_SESSION['US_id']) or !isset($_SESSION['US_test'])){
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
+
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/user-info.css">
@@ -107,7 +109,7 @@ if(!isset($_SESSION['US_id']) or !isset($_SESSION['US_test'])){
         }
       ?>
 
-      <section class="user-info">
+      <section class="user-info rtl">
         <div class="container">
           <div class="row">
             <form class="col s12" action="user-info.php" method="post">

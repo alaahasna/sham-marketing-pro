@@ -1,4 +1,9 @@
 @import "style.scss";
 .about-us-page {
 	margin:80px auto;
+	.about {
+		p {
+			font-size: 1.3rem;
+		}
+	}
 }

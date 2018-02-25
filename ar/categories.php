@@ -15,6 +15,7 @@ include "lib/main.php";
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="css/owl.carousel.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/materialize-rtl.min.css"  media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/categories.css">
       <!--Let browser know website is optimized for mobile-->
@@ -31,7 +32,7 @@ include "lib/main.php";
         }
       ?>
 
-      <section class="categories-page">
+      <section class="categories-page rtl">
         <div class="container-fluid">
           <div class="row">
           <?php
