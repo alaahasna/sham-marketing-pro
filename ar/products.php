@@ -45,7 +45,8 @@ if(isset($_GET['category_id'])){
   <!DOCTYPE html>
   <html>
     <head>
-      <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+      <link rel="shortcut icon" href="imgs/logo
+      .png" type="image/x-icon">
       <meta charset="utf-8">
       <title><?php echo $main_settings['ar_site_name'];?> | المنتجات</title>
       <!--Import Google Icon Font-->
@@ -123,7 +124,7 @@ echo '
 ';
 } else{
 echo '
-<a href="'.$link.'page='.$privpage.'"><span class="btn btn-default"><i class="material-icons">chevron_left</i></span></a>
+<a href="'.$link.'page='.$privpage.'"><span class="btn btn-default"><i class="material-icons">chevron_right</i></span></a>
 ';
 }
 ?>
@@ -145,11 +146,11 @@ if($i > 0 && $i <= $lastpage){
 <?php
 if($currentpage == $lastpage){
 echo '
-<span class="btn btn-default.disabled"><i class="material-icons">chevron_right</i></span>
+<span class="btn btn-default.disabled"><i class="material-icons">chevron_left</i></span>
 ';
 } else{
 echo '
-<a href="'.$link.'page='.$nextpage.'"><span class="btn btn-default"><i class="material-icons">chevron_right</i></span></a>
+<a href="'.$link.'page='.$nextpage.'"><span class="btn btn-default"><i class="material-icons">chevron_left</i></span></a>
 ';
 }
 ?>
