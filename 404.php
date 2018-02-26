@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>404 Error</title>
-      <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+      <link rel="shortcut icon" href="imgs/logo2.png" type="image/x-icon">
       <meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css?family=Exo+2|Lato" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">

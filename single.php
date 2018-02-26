@@ -55,7 +55,7 @@ if(isset($_POST['add_to_cart'])){
   <!DOCTYPE html>
   <html>
     <head>
-      <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+      <link rel="shortcut icon" href="imgs/logo2.png" type="image/x-icon">
       <meta charset="utf-8">
       <title><?php echo $main_settings['site_name'];?> | <?php echo $product_info['title'];?></title>
       <!--Import Google Icon Font-->

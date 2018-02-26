@@ -9,7 +9,7 @@ $about = @mysql_fetch_assoc($select_about);
   <!DOCTYPE html>
   <html>
     <head>
-      <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+      <link rel="shortcut icon" href="imgs/logo2.png" type="image/x-icon">
       <meta charset="utf-8">
       <title><?php echo $main_settings['ar_site_name'];?> | من نحن</title>
       <!--Import Google Icon Font-->
